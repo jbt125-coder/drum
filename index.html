@@ -37,7 +37,7 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent;font-fa
 
 /* ── LEFT LAYOUT ── */
 #drum-main{flex:1;display:flex;flex-direction:row;overflow:hidden;min-height:0;}
-#drum-sidebar{width:62px;flex-shrink:0;display:flex;flex-direction:column;gap:3px;padding:4px 3px;border-right:1px solid var(–border);overflow-y:auto;background:rgba(0,0,8,0.6);}
+#drum-sidebar{width:58px;flex-shrink:0;display:flex;flex-direction:column;gap:3px;padding:4px 3px;border-right:1px solid var(–border);overflow-y:auto;background:rgba(0,0,8,0.6);}
 .sidebar-lbl{font-size:0.4rem;letter-spacing:0.15em;color:var(–muted);text-align:center;margin-bottom:2px;text-transform:uppercase;}
 .drum-chip{padding:5px 2px;border-radius:4px;border:1px solid rgba(0,242,255,0.18);background:rgba(0,242,255,0.03);font-size:0.48rem;letter-spacing:0.05em;text-align:center;cursor:grab;display:flex;flex-direction:column;align-items:center;gap:2px;touch-action:none;transition:border-color 0.12s,box-shadow 0.12s;color:#cce8ff;}
 .drum-chip .chip-dot{width:6px;height:6px;border-radius:50%;}
@@ -104,6 +104,7 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent;font-fa
 #drum-bottom{flex-shrink:0;padding:4px 7px 5px;border-top:1px solid var(–border);background:rgba(0,0,8,0.6);}
 .beat-lib-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:4px;}
 .beat-lib-title{font-family:‘Orbitron’,monospace;font-size:0.44rem;letter-spacing:0.2em;color:var(–neon);text-transform:uppercase;text-shadow:0 0 8px rgba(0,242,255,0.5);}
+.beat-genre-lbl{font-family:‘Orbitron’,monospace;font-size:0.38rem;color:var(–amber);letter-spacing:0.06em;font-weight:700;}
 .beat-lib-bpm{font-family:‘Orbitron’,monospace;font-size:0.52rem;color:var(–amber);text-shadow:0 0 6px rgba(245,166,35,0.5);}
 .beat-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:3px;}
 .beat-btn{padding:4px 2px;border-radius:4px;border:1px solid rgba(0,242,255,0.18);background:rgba(0,242,255,0.03);color:rgba(0,242,255,0.45);font-family:‘Orbitron’,monospace;font-size:0.38rem;font-weight:700;letter-spacing:0.06em;text-align:center;transition:all 0.13s;display:flex;flex-direction:column;align-items:center;gap:1px;line-height:1.2;}
@@ -137,6 +138,36 @@ button{touch-action:manipulation;-webkit-tap-highlight-color:transparent;font-fa
 .add-ch-btn{width:100%;padding:3px;border:1px dashed rgba(0,242,255,0.13);border-radius:3px;background:transparent;color:rgba(0,242,255,0.22);font-family:‘Share Tech Mono’,monospace;font-size:0.44rem;letter-spacing:0.07em;transition:all 0.15s;margin-top:2px;}
 .add-ch-btn:active{border-color:var(–neon);color:var(–neon);}
 
+/* ── INSTRUMENT TABS ── */
+#inst-tabs-top{display:flex;border-bottom:1px solid var(–border);flex-shrink:0;background:rgba(0,0,8,0.5);}
+.inst-tab{flex:1;padding:4px 2px;border:none;background:transparent;font-family:‘Orbitron’,monospace;font-size:0.34rem;font-weight:700;letter-spacing:0.05em;color:rgba(139,92,246,0.38);transition:all 0.15s;border-bottom:2px solid transparent;}
+.inst-tab.active{color:var(–purple);border-bottom-color:var(–purple);background:rgba(139,92,246,0.05);}
+/* ── PIANO ── */
+#piano-body{display:none;flex:1;flex-direction:column;padding:4px 6px;min-height:0;gap:4px;}
+.piano-voice-row{display:flex;gap:3px;flex-wrap:wrap;flex-shrink:0;}
+.piano-voice-btn{padding:3px 6px;border-radius:3px;border:1px solid rgba(139,92,246,0.22);background:transparent;color:rgba(139,92,246,0.4);font-family:‘Orbitron’,monospace;font-size:0.34rem;font-weight:700;letter-spacing:0.05em;transition:all 0.12s;}
+.piano-voice-btn.active{border-color:var(–purple);color:var(–purple);background:rgba(139,92,246,0.1);box-shadow:0 0 7px rgba(139,92,246,0.2);}
+.piano-expr-row{display:flex;align-items:center;gap:5px;flex-shrink:0;}
+.piano-expr-lbl{font-size:0.36rem;color:var(–muted);letter-spacing:0.06em;white-space:nowrap;}
+#piano-expr-slider,#piano-sustain{flex:1;height:3px;-webkit-appearance:none;appearance:none;background:rgba(139,92,246,0.15);border-radius:2px;outline:none;}
+#piano-expr-slider::-webkit-slider-thumb,#piano-sustain::-webkit-slider-thumb{-webkit-appearance:none;width:13px;height:13px;border-radius:50%;background:var(–purple);box-shadow:0 0 6px var(–purple);cursor:pointer;}
+.piano-octave-row{display:flex;justify-content:space-between;align-items:center;flex-shrink:0;}
+.piano-oct-btn{width:26px;height:26px;border-radius:50%;border:1.5px solid rgba(139,92,246,0.35);background:transparent;color:rgba(139,92,246,0.55);font-size:0.85rem;display:flex;align-items:center;justify-content:center;}
+.piano-oct-btn:active{background:var(–purple);color:white;}
+.piano-oct-lbl{font-family:‘Orbitron’,monospace;font-size:0.48rem;color:var(–purple);}
+.piano-keys-wrap{flex:1;position:relative;overflow:hidden;min-height:0;border-radius:5px;border:1px solid rgba(139,92,246,0.18);}
+#piano-canvas{display:block;width:100%;height:100%;touch-action:none;cursor:crosshair;}
+/* ── GUITAR ── */
+#guitar-body{display:none;flex:1;flex-direction:column;padding:4px 6px;min-height:0;gap:4px;}
+.guitar-tuning-row{display:flex;gap:3px;flex-shrink:0;flex-wrap:wrap;}
+.guitar-tune-btn{padding:3px 6px;border-radius:3px;border:1px solid rgba(0,255,136,0.18);background:transparent;color:rgba(0,255,136,0.38);font-family:‘Orbitron’,monospace;font-size:0.34rem;font-weight:700;letter-spacing:0.04em;transition:all 0.12s;}
+.guitar-tune-btn.active{border-color:var(–green);color:var(–green);background:rgba(0,255,136,0.07);box-shadow:0 0 7px rgba(0,255,136,0.18);}
+.guitar-ctrl-row{display:flex;align-items:center;gap:6px;flex-shrink:0;}
+.guitar-ctrl-lbl{font-size:0.36rem;color:var(–muted);}
+#guitar-tone{flex:1;height:3px;-webkit-appearance:none;appearance:none;background:rgba(0,255,136,0.1);border-radius:2px;outline:none;}
+#guitar-tone::-webkit-slider-thumb{-webkit-appearance:none;width:13px;height:13px;border-radius:50%;background:var(–green);box-shadow:0 0 5px var(–green);cursor:pointer;}
+.guitar-neck-wrap{flex:1;position:relative;min-height:0;border-radius:5px;border:1px solid rgba(0,255,136,0.18);overflow:hidden;}
+#guitar-canvas{display:block;width:100%;height:100%;touch-action:none;cursor:crosshair;}
 /* ── OTO PANEL ── */
 #oto-body{flex:1;display:flex;flex-direction:row;align-items:center;justify-content:center;gap:7px;padding:5px 7px;min-height:0;}
 .oto-side-col{display:flex;flex-direction:column;gap:6px;align-items:center;}
@@ -301,8 +332,16 @@ input[type=range].vert::-webkit-slider-thumb{-webkit-appearance:none;width:18px;
 
 <div id="drum-bottom">
   <div class="beat-lib-header">
-    <div class="beat-lib-title">⬡ BEAT LIBRARY</div>
-    <div class="beat-lib-bpm" id="beat-lib-bpm"></div>
+    <div style="display:flex;align-items:center;gap:5px;">
+      <div class="beat-lib-title">⬡ BEATS</div>
+      <div class="beat-genre-lbl" id="beat-genre-lbl">HIP-HOP / RAP</div>
+      <div style="font-family:'Orbitron',monospace;font-size:0.34rem;color:var(--muted);" id="beat-page-info">PG 1/10</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:4px;">
+      <div class="beat-lib-bpm" id="beat-lib-bpm"></div>
+      <button style="width:20px;height:20px;border-radius:3px;border:1px solid var(--border);background:transparent;color:var(--neon);font-size:0.7rem;display:flex;align-items:center;justify-content:center;" onclick="beatPageNav(-1)">◀</button>
+      <button style="width:20px;height:20px;border-radius:3px;border:1px solid var(--border);background:transparent;color:var(--neon);font-size:0.7rem;display:flex;align-items:center;justify-content:center;" onclick="beatPageNav(1)">▶</button>
+    </div>
   </div>
   <div class="beat-grid" id="beat-grid"></div>
 </div>
@@ -319,7 +358,7 @@ input[type=range].vert::-webkit-slider-thumb{-webkit-appearance:none;width:18px;
 
   <div id="right-panel">
     <div class="panel-header">
-      <div class="panel-title oto">OTOMATONE</div>
+      <div class="panel-title oto" id="right-title">OTOMATONE</div>
       <div style="font-size:0.42rem;color:rgba(139,92,246,0.5);letter-spacing:0.1em;">BASS ENGINE</div>
     </div>
     <div id="oto-body">
@@ -349,6 +388,33 @@ input[type=range].vert::-webkit-slider-thumb{-webkit-appearance:none;width:18px;
         <div class="bass-lbl">BASS</div>
         <input type="range" class="vert" id="bass_vol" min="0" max="1" step="0.05" value="0.5">
       </div>
+    </div>
+    <!-- PIANO PANEL -->
+    <div id="piano-body">
+      <div class="piano-voice-row" id="piano-voice-row"></div>
+      <div class="piano-expr-row">
+        <span class="piano-expr-lbl">REVERB</span>
+        <input type="range" id="piano-expr-slider" min="0" max="1" step="0.05" value="0.3">
+        <span class="piano-expr-lbl">SUSTAIN</span>
+        <input type="range" id="piano-sustain" min="0.1" max="3" step="0.1" value="1.2" style="max-width:60px;">
+      </div>
+      <div class="piano-octave-row">
+        <button class="piano-oct-btn" onclick="pianoOctave(-1)">−</button>
+        <div class="piano-oct-lbl" id="piano-oct-lbl">OCT 4</div>
+        <button class="piano-oct-btn" onclick="pianoOctave(1)">+</button>
+      </div>
+      <div class="piano-keys-wrap"><canvas id="piano-canvas"></canvas></div>
+    </div>
+    <!-- GUITAR PANEL -->
+    <div id="guitar-body">
+      <div class="guitar-tuning-row" id="guitar-tuning-row"></div>
+      <div class="guitar-ctrl-row">
+        <span class="guitar-ctrl-lbl">TONE</span>
+        <input type="range" id="guitar-tone" min="200" max="4000" step="10" value="1800">
+        <span class="guitar-ctrl-lbl">VOL</span>
+        <input type="range" id="guitar_vol" min="0" max="1" step="0.05" value="0.7" style="width:50px;">
+      </div>
+      <div class="guitar-neck-wrap"><canvas id="guitar-canvas"></canvas></div>
     </div>
     <div id="oto-looper">
       <div class="looper-title" style="color:var(--purple);text-shadow:0 0 8px rgba(139,92,246,0.5);">⟳ OTO LOOP</div>
@@ -467,7 +533,24 @@ function initChOsc(ch){if(loopOsc[ch])return;loopOsc[ch]=ctx.createOscillator();
 // ═══════════════════════════════════════════════
 //  DRUMS
 // ═══════════════════════════════════════════════
-const DRUMS=[{id:'kick',label:'KICK',color:'#ff3860'},{id:'snare',label:'SNARE',color:'#f59e0b'},{id:'hat',label:'HAT',color:'#00f2ff'},{id:'clap',label:'CLAP',color:'#8b5cf6'},{id:'tom',label:'TOM',color:'#ff6b35'},{id:'crash',label:'CRASH',color:'#4ecdc4'},{id:'rim',label:'RIM',color:'#f7b731'},{id:'perc',label:'PERC',color:'#ec4899'}];
+const DRUMS=[
+  {id:'kick',  label:'KICK',  color:'#ff3860'},
+  {id:'kick2', label:'KICK2', color:'#ff6b80'},
+  {id:'snare', label:'SNARE', color:'#f59e0b'},
+  {id:'snare2',label:'SNR2',  color:'#fbbf24'},
+  {id:'hat',   label:'HAT',   color:'#00f2ff'},
+  {id:'ohat',  label:'OHAT',  color:'#67e8f9'},
+  {id:'clap',  label:'CLAP',  color:'#8b5cf6'},
+  {id:'clap2', label:'CLP2',  color:'#a78bfa'},
+  {id:'tom',   label:'TOM',   color:'#ff6b35'},
+  {id:'tom2',  label:'TOM2',  color:'#fb923c'},
+  {id:'crash', label:'CRASH', color:'#4ecdc4'},
+  {id:'ride',  label:'RIDE',  color:'#2dd4bf'},
+  {id:'rim',   label:'RIM',   color:'#f7b731'},
+  {id:'perc',  label:'PERC',  color:'#ec4899'},
+  {id:'shaker',label:'SHKR',  color:'#84cc16'},
+  {id:'cowbell',label:'CWBL', color:'#f97316'},
+];
 function drumColor(id){return(DRUMS.find(d=>d.id===id)||{color:'#fff'}).color;}
 
 function playDrum(id,fromLoop){
@@ -482,7 +565,40 @@ function playDrum(id,fromLoop){
   else if(id==='tom'){const o=ctx.createOscillator();o.type='sine';o.frequency.setValueAtTime(180,now);o.frequency.exponentialRampToValueAtTime(70,now+.22);g.gain.setValueAtTime(.9,now);g.gain.exponentialRampToValueAtTime(.001,now+.26);o.connect(g);o.start(now);o.stop(now+.27);o.onended=()=>g.disconnect();}
   else if(id==='crash'){const buf=ctx.createBuffer(1,ctx.sampleRate*.8,ctx.sampleRate);const d=buf.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;const s=ctx.createBufferSource();s.buffer=buf;const f=ctx.createBiquadFilter();f.type='highpass';f.frequency.value=4500;s.connect(f);f.connect(g);g.gain.setValueAtTime(.3,now);g.gain.exponentialRampToValueAtTime(.001,now+.75);s.start(now);s.onended=()=>g.disconnect();}
   else if(id==='rim'){const o=ctx.createOscillator();o.type='square';o.frequency.setValueAtTime(850,now);o.frequency.exponentialRampToValueAtTime(380,now+.05);g.gain.setValueAtTime(.55,now);g.gain.exponentialRampToValueAtTime(.001,now+.06);o.connect(g);o.start(now);o.stop(now+.07);o.onended=()=>g.disconnect();}
+  else if(id==='kick2'){
+    // Sub kick with click transient
+    const o=ctx.createOscillator();o.type='sine';o.frequency.setValueAtTime(220,now);o.frequency.exponentialRampToValueAtTime(35,now+.18);const g2=ctx.createGain();g2.connect(ctx.destination);g2.gain.setValueAtTime(.8,now);g2.gain.exponentialRampToValueAtTime(.001,now+.22);o.connect(g2);o.start(now);o.stop(now+.23);
+    const buf=ctx.createBuffer(1,Math.floor(ctx.sampleRate*.01),ctx.sampleRate);const d=buf.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;const s=ctx.createBufferSource();s.buffer=buf;const f2=ctx.createBiquadFilter();f2.type='highpass';f2.frequency.value=2000;g.gain.setValueAtTime(.5,now);g.gain.exponentialRampToValueAtTime(.001,now+.015);s.connect(f2);f2.connect(g);s.start(now);s.onended=()=>g.disconnect();
+  }
+  else if(id==='snare2'){
+    // Crispy rimshot snare
+    const buf=ctx.createBuffer(1,Math.floor(ctx.sampleRate*.14),ctx.sampleRate);const d=buf.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;const s=ctx.createBufferSource();s.buffer=buf;const f=ctx.createBiquadFilter();f.type='bandpass';f.frequency.value=2200;f.Q.value=1.2;s.connect(f);f.connect(g);g.gain.setValueAtTime(.85,now);g.gain.exponentialRampToValueAtTime(.001,now+.14);s.start(now);s.onended=()=>g.disconnect();
+  }
+  else if(id==='ohat'){
+    // Open hi-hat - long decay
+    const buf=ctx.createBuffer(1,Math.floor(ctx.sampleRate*.38),ctx.sampleRate);const d=buf.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;const s=ctx.createBufferSource();s.buffer=buf;const f=ctx.createBiquadFilter();f.type='highpass';f.frequency.value=6000;s.connect(f);f.connect(g);g.gain.setValueAtTime(.28,now);g.gain.exponentialRampToValueAtTime(.001,now+.38);s.start(now);s.onended=()=>g.disconnect();
+  }
+  else if(id==='clap2'){
+    // Fat layered clap
+    for(let i=0;i<4;i++){const g2=ctx.createGain();g2.connect(ctx.destination);const buf=ctx.createBuffer(1,Math.floor(ctx.sampleRate*.07),ctx.sampleRate);const d=buf.getChannelData(0);for(let j=0;j<d.length;j++)d[j]=Math.random()*2-1;const s=ctx.createBufferSource();s.buffer=buf;const f=ctx.createBiquadFilter();f.type='bandpass';f.frequency.value=900;f.Q.value=.5;s.connect(f);f.connect(g2);const t=now+i*.018;g2.gain.setValueAtTime(.6,t);g2.gain.exponentialRampToValueAtTime(.001,t+.09);s.start(t);s.onended=()=>g2.disconnect();}
+  }
+  else if(id==='tom2'){
+    // High tom
+    const o=ctx.createOscillator();o.type='sine';o.frequency.setValueAtTime(320,now);o.frequency.exponentialRampToValueAtTime(120,now+.18);g.gain.setValueAtTime(.75,now);g.gain.exponentialRampToValueAtTime(.001,now+.2);o.connect(g);o.start(now);o.stop(now+.21);o.onended=()=>g.disconnect();
+  }
+  else if(id==='ride'){
+    // Ride cymbal
+    const buf=ctx.createBuffer(1,Math.floor(ctx.sampleRate*.6),ctx.sampleRate);const d=buf.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;const s=ctx.createBufferSource();s.buffer=buf;const f=ctx.createBiquadFilter();f.type='bandpass';f.frequency.value=5500;f.Q.value=.5;s.connect(f);f.connect(g);g.gain.setValueAtTime(.24,now);g.gain.exponentialRampToValueAtTime(.001,now+.55);s.start(now);s.onended=()=>g.disconnect();
+  }
   else if(id==='perc'){const o=ctx.createOscillator();o.type='triangle';o.frequency.setValueAtTime(550,now);o.frequency.exponentialRampToValueAtTime(180,now+.13);g.gain.setValueAtTime(.65,now);g.gain.exponentialRampToValueAtTime(.001,now+.16);o.connect(g);o.start(now);o.stop(now+.17);o.onended=()=>g.disconnect();}
+  else if(id==='shaker'){
+    // Shaker
+    const buf=ctx.createBuffer(1,Math.floor(ctx.sampleRate*.04),ctx.sampleRate);const d=buf.getChannelData(0);for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;const s=ctx.createBufferSource();s.buffer=buf;const f=ctx.createBiquadFilter();f.type='bandpass';f.frequency.value=8000;f.Q.value=2;s.connect(f);f.connect(g);g.gain.setValueAtTime(.3,now);g.gain.exponentialRampToValueAtTime(.001,now+.05);s.start(now);s.onended=()=>g.disconnect();
+  }
+  else if(id==='cowbell'){
+    // Classic cowbell
+    [562,845].forEach(fr=>{const o=ctx.createOscillator();o.type='square';o.frequency.value=fr;const g2=ctx.createGain();g2.gain.setValueAtTime(.22,now);g2.gain.exponentialRampToValueAtTime(.001,now+.55);const f=ctx.createBiquadFilter();f.type='bandpass';f.frequency.value=fr;f.Q.value=3;o.connect(f);f.connect(g2);g2.connect(ctx.destination);o.start(now);o.stop(now+.56);o.onended=()=>g2.disconnect();});
+  }
 }
 
 // fire / thrust
@@ -533,6 +649,10 @@ function sizeAll(){
   sk.style.top=(OR-OKNOB)+'px';sk.style.left=(OR-OKNOB)+'px';
   renderLocks();
   drawRadarFrame();
+  setTimeout(()=>{
+    if(typeof drawPianoKeys==='function')drawPianoKeys();
+    if(typeof drawGuitarNeck==='function')drawGuitarNeck();
+  },50);
 }
 
 // ═══════════════════════════════════════════════
@@ -877,222 +997,150 @@ function buildSidebar(){
 //   8th notes halfway between: 315°(+½1) 45°(+½2) 135°(+½3) 225°(+½4)
 //   16th notes: 270,292,315,337, 0,22,45,67, 90,112,135,157, 180,202,225,247
 const B16=[270,292,315,337,0,22,45,67,90,112,135,157,180,202,225,247];
-const BEAT_LIBRARY=[
-  {
-    name:'BOOM BAP', bpm:90,
-    circles:[
-      {drumId:'kick', angle:270, radius:.70}, // beat 1
-      {drumId:'kick', angle:45,  radius:.60}, // & of 2
-      {drumId:'snare',angle:0,   radius:.72}, // beat 2
-      {drumId:'snare',angle:180, radius:.72}, // beat 4
-      {drumId:'hat',  angle:270, radius:.50}, // 8ths on all beats
-      {drumId:'hat',  angle:315, radius:.50},
-      {drumId:'hat',  angle:0,   radius:.50},
-      {drumId:'hat',  angle:45,  radius:.50},
-      {drumId:'hat',  angle:90,  radius:.50},
-      {drumId:'hat',  angle:135, radius:.50},
-      {drumId:'hat',  angle:180, radius:.50},
-      {drumId:'hat',  angle:225, radius:.50},
-    ]
-  },
-  {
-    name:'4 ON FLOOR', bpm:128,
-    circles:[
-      {drumId:'kick', angle:270, radius:.75}, // every beat
-      {drumId:'kick', angle:0,   radius:.75},
-      {drumId:'kick', angle:90,  radius:.75},
-      {drumId:'kick', angle:180, radius:.75},
-      {drumId:'clap', angle:0,   radius:.62}, // beats 2 & 4
-      {drumId:'clap', angle:180, radius:.62},
-      {drumId:'hat',  angle:315, radius:.50}, // offbeats
-      {drumId:'hat',  angle:45,  radius:.50},
-      {drumId:'hat',  angle:135, radius:.50},
-      {drumId:'hat',  angle:225, radius:.50},
-    ]
-  },
-  {
-    name:'TRAP BANGER', bpm:140,
-    circles:[
-      {drumId:'kick', angle:270, radius:.80}, // beat 1
-      {drumId:'kick', angle:337, radius:.70}, // 16th before beat 2
-      {drumId:'kick', angle:22,  radius:.65}, // 16th after beat 2
-      {drumId:'kick', angle:157, radius:.75}, // before beat 4
-      {drumId:'snare',angle:90,  radius:.72}, // beat 3 only (half-time snare)
-      {drumId:'hat',  angle:270, radius:.55},
-      {drumId:'hat',  angle:292, radius:.48},
-      {drumId:'hat',  angle:315, radius:.55},
-      {drumId:'hat',  angle:337, radius:.48},
-      {drumId:'hat',  angle:0,   radius:.55},
-      {drumId:'hat',  angle:22,  radius:.48},
-      {drumId:'hat',  angle:45,  radius:.55},
-      {drumId:'hat',  angle:67,  radius:.48},
-      {drumId:'hat',  angle:90,  radius:.55},
-      {drumId:'hat',  angle:112, radius:.48},
-      {drumId:'hat',  angle:135, radius:.55},
-    ]
-  },
-  {
-    name:'HALF TIME', bpm:80,
-    circles:[
-      {drumId:'kick', angle:270, radius:.78}, // beat 1
-      {drumId:'kick', angle:45,  radius:.65}, // & of 2
-      {drumId:'kick', angle:112, radius:.60}, // & of 3
-      {drumId:'snare',angle:90,  radius:.75}, // beat 3 only
-      {drumId:'hat',  angle:270, radius:.52},
-      {drumId:'hat',  angle:315, radius:.52},
-      {drumId:'hat',  angle:0,   radius:.52},
-      {drumId:'hat',  angle:45,  radius:.52},
-      {drumId:'hat',  angle:90,  radius:.52},
-      {drumId:'hat',  angle:135, radius:.52},
-      {drumId:'hat',  angle:180, radius:.52},
-      {drumId:'hat',  angle:225, radius:.52},
-      {drumId:'crash',angle:270, radius:.88},
-    ]
-  },
-  {
-    name:'REGGAETON', bpm:96,
-    circles:[
-      {drumId:'kick', angle:270, radius:.75}, // beat 1
-      {drumId:'kick', angle:337, radius:.68}, // dembow
-      {drumId:'kick', angle:67,  radius:.68}, // dembow
-      {drumId:'kick', angle:157, radius:.72}, // dembow
-      {drumId:'snare',angle:0,   radius:.70},
-      {drumId:'snare',angle:112, radius:.70},
-      {drumId:'snare',angle:180, radius:.70},
-      {drumId:'perc', angle:315, radius:.58},
-      {drumId:'perc', angle:45,  radius:.58},
-      {drumId:'perc', angle:135, radius:.58},
-      {drumId:'perc', angle:225, radius:.58},
-      {drumId:'hat',  angle:292, radius:.50},
-      {drumId:'hat',  angle:22,  radius:.50},
-    ]
-  },
-  {
-    name:'JUNGLE DnB', bpm:170,
-    circles:[
-      {drumId:'kick', angle:270, radius:.78}, // beat 1
-      {drumId:'kick', angle:22,  radius:.68}, // Amen kick pos 2
-      {drumId:'kick', angle:112, radius:.72}, // Amen kick pos 3
-      {drumId:'kick', angle:202, radius:.65}, // Amen kick pos 4
-      {drumId:'snare',angle:0,   radius:.80}, // beat 2
-      {drumId:'snare',angle:180, radius:.80}, // beat 4
-      {drumId:'snare',angle:337, radius:.62}, // ghost snare
-      {drumId:'hat',  angle:315, radius:.52},
-      {drumId:'hat',  angle:45,  radius:.52},
-      {drumId:'hat',  angle:135, radius:.52},
-      {drumId:'hat',  angle:225, radius:.52},
-      {drumId:'rim',  angle:67,  radius:.62},
-      {drumId:'rim',  angle:157, radius:.62},
-      {drumId:'crash',angle:270, radius:.90},
-    ]
-  },
-  {
-    name:'AFROBEAT', bpm:104,
-    circles:[
-      {drumId:'kick', angle:270, radius:.75},
-      {drumId:'kick', angle:22,  radius:.65},
-      {drumId:'kick', angle:135, radius:.70},
-      {drumId:'kick', angle:225, radius:.62},
-      {drumId:'snare',angle:45,  radius:.72},
-      {drumId:'snare',angle:157, radius:.72},
-      {drumId:'perc', angle:270, radius:.55},
-      {drumId:'perc', angle:315, radius:.55},
-      {drumId:'perc', angle:0,   radius:.55},
-      {drumId:'perc', angle:45,  radius:.55},
-      {drumId:'perc', angle:90,  radius:.55},
-      {drumId:'perc', angle:135, radius:.55},
-      {drumId:'perc', angle:180, radius:.55},
-      {drumId:'perc', angle:225, radius:.55},
-      {drumId:'hat',  angle:337, radius:.48},
-      {drumId:'hat',  angle:67,  radius:.48},
-    ]
-  },
-  {
-    name:'BOSSA NOVA', bpm:120,
-    circles:[
-      {drumId:'kick', angle:270, radius:.72},
-      {drumId:'kick', angle:45,  radius:.60},
-      {drumId:'kick', angle:157, radius:.65},
-      {drumId:'rim',  angle:0,   radius:.70},
-      {drumId:'rim',  angle:90,  radius:.65},
-      {drumId:'rim',  angle:180, radius:.70},
-      {drumId:'rim',  angle:225, radius:.60},
-      {drumId:'hat',  angle:270, radius:.50},
-      {drumId:'hat',  angle:315, radius:.50},
-      {drumId:'hat',  angle:0,   radius:.50},
-      {drumId:'hat',  angle:45,  radius:.50},
-      {drumId:'hat',  angle:90,  radius:.50},
-      {drumId:'hat',  angle:135, radius:.50},
-      {drumId:'hat',  angle:180, radius:.50},
-      {drumId:'hat',  angle:225, radius:.50},
-    ]
-  },
-  {
-    name:'DRILL', bpm:144,
-    circles:[
-      {drumId:'kick', angle:270, radius:.82},
-      {drumId:'kick', angle:337, radius:.72},
-      {drumId:'kick', angle:22,  radius:.65},
-      {drumId:'kick', angle:202, radius:.75},
-      {drumId:'kick', angle:247, radius:.68},
-      {drumId:'snare',angle:90,  radius:.78}, // beat 3 slid
-      {drumId:'snare',angle:112, radius:.65}, // drag
-      {drumId:'hat',  angle:270, radius:.52},
-      {drumId:'hat',  angle:292, radius:.45},
-      {drumId:'hat',  angle:315, radius:.52},
-      {drumId:'hat',  angle:337, radius:.45},
-      {drumId:'hat',  angle:0,   radius:.52},
-      {drumId:'hat',  angle:22,  radius:.45},
-      {drumId:'hat',  angle:45,  radius:.52},
-      {drumId:'hat',  angle:67,  radius:.45},
-      {drumId:'crash',angle:270, radius:.92},
-    ]
-  },
-  {
-    name:'SAMBA FUNK', bpm:110,
-    circles:[
-      {drumId:'kick', angle:270, radius:.76},
-      {drumId:'kick', angle:67,  radius:.65},
-      {drumId:'kick', angle:157, radius:.70},
-      {drumId:'kick', angle:225, radius:.60},
-      {drumId:'snare',angle:0,   radius:.73},
-      {drumId:'snare',angle:112, radius:.68},
-      {drumId:'snare',angle:180, radius:.73},
-      {drumId:'clap', angle:0,   radius:.85},
-      {drumId:'clap', angle:180, radius:.85},
-      {drumId:'perc', angle:315, radius:.58},
-      {drumId:'perc', angle:45,  radius:.58},
-      {drumId:'perc', angle:135, radius:.55},
-      {drumId:'perc', angle:247, radius:.55},
-      {drumId:'hat',  angle:337, radius:.48},
-      {drumId:'hat',  angle:22,  radius:.48},
-      {drumId:'tom',  angle:90,  radius:.78},
-    ]
-  },
+const BEAT_PAGES=[
+{genre:'HIP-HOP / RAP',beats:[
+  {name:'BOOM BAP',bpm:90,circles:[{drumId:'kick',angle:270,radius:.70},{drumId:'kick',angle:45,radius:.60},{drumId:'snare',angle:0,radius:.72},{drumId:'snare',angle:180,radius:.72},{drumId:'hat',angle:270,radius:.50},{drumId:'hat',angle:315,radius:.50},{drumId:'hat',angle:0,radius:.50},{drumId:'hat',angle:45,radius:.50},{drumId:'hat',angle:90,radius:.50},{drumId:'hat',angle:135,radius:.50},{drumId:'hat',angle:180,radius:.50},{drumId:'hat',angle:225,radius:.50}]},
+  {name:'EAST COAST',bpm:85,circles:[{drumId:'kick',angle:270,radius:.72},{drumId:'kick',angle:337,radius:.62},{drumId:'snare',angle:0,radius:.75},{drumId:'snare',angle:180,radius:.75},{drumId:'hat',angle:315,radius:.48},{drumId:'hat',angle:45,radius:.48},{drumId:'hat',angle:135,radius:.48},{drumId:'hat',angle:225,radius:.48},{drumId:'rim',angle:67,radius:.65},{drumId:'rim',angle:157,radius:.65}]},
+  {name:'WEST COAST',bpm:96,circles:[{drumId:'kick',angle:270,radius:.75},{drumId:'kick',angle:22,radius:.65},{drumId:'kick',angle:135,radius:.68},{drumId:'snare',angle:45,radius:.72},{drumId:'snare',angle:180,radius:.72},{drumId:'hat',angle:270,radius:.52},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:0,radius:.52},{drumId:'hat',angle:45,radius:.52},{drumId:'hat',angle:90,radius:.52},{drumId:'hat',angle:135,radius:.52},{drumId:'hat',angle:180,radius:.52},{drumId:'hat',angle:225,radius:.52},{drumId:'clap',angle:90,radius:.82}]},
+  {name:'GOLDEN ERA',bpm:88,circles:[{drumId:'kick',angle:270,radius:.74},{drumId:'kick',angle:157,radius:.63},{drumId:'snare',angle:0,radius:.70},{drumId:'snare',angle:180,radius:.70},{drumId:'ohat',angle:45,radius:.55},{drumId:'ohat',angle:225,radius:.55},{drumId:'hat',angle:270,radius:.45},{drumId:'hat',angle:315,radius:.45},{drumId:'hat',angle:0,radius:.45},{drumId:'hat',angle:90,radius:.45},{drumId:'hat',angle:135,radius:.45},{drumId:'hat',angle:180,radius:.45},{drumId:'clap',angle:0,radius:.85},{drumId:'clap',angle:180,radius:.85}]},
+  {name:'NY DRILL',bpm:140,circles:[{drumId:'kick',angle:270,radius:.82},{drumId:'kick',angle:337,radius:.72},{drumId:'kick',angle:22,radius:.65},{drumId:'kick',angle:202,radius:.75},{drumId:'snare',angle:90,radius:.78},{drumId:'snare',angle:112,radius:.65},{drumId:'hat',angle:270,radius:.52},{drumId:'hat',angle:292,radius:.45},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:337,radius:.45},{drumId:'hat',angle:0,radius:.52},{drumId:'hat',angle:22,radius:.45},{drumId:'hat',angle:45,radius:.52},{drumId:'hat',angle:67,radius:.45},{drumId:'crash',angle:270,radius:.92}]},
+  {name:'JAZZY HOP',bpm:82,circles:[{drumId:'kick',angle:270,radius:.70},{drumId:'kick',angle:67,radius:.62},{drumId:'snare',angle:0,radius:.72},{drumId:'snare',angle:157,radius:.65},{drumId:'ride',angle:270,radius:.52},{drumId:'ride',angle:315,radius:.52},{drumId:'ride',angle:0,radius:.52},{drumId:'ride',angle:45,radius:.52},{drumId:'ride',angle:90,radius:.52},{drumId:'ride',angle:135,radius:.52},{drumId:'ride',angle:180,radius:.52},{drumId:'ride',angle:225,radius:.52},{drumId:'rim',angle:337,radius:.72}]},
+  {name:'TRAP SOUL',bpm:70,circles:[{drumId:'kick',angle:270,radius:.80},{drumId:'kick',angle:247,radius:.68},{drumId:'snare2',angle:90,radius:.75},{drumId:'hat',angle:292,radius:.48},{drumId:'hat',angle:315,radius:.55},{drumId:'hat',angle:337,radius:.48},{drumId:'hat',angle:0,radius:.55},{drumId:'hat',angle:22,radius:.48},{drumId:'hat',angle:45,radius:.55},{drumId:'hat',angle:67,radius:.48},{drumId:'ohat',angle:135,radius:.60},{drumId:'ohat',angle:225,radius:.60}]},
+  {name:'CHOPPED',bpm:75,circles:[{drumId:'kick',angle:270,radius:.78},{drumId:'kick',angle:45,radius:.68},{drumId:'snare',angle:0,radius:.74},{drumId:'snare',angle:112,radius:.66},{drumId:'clap',angle:180,radius:.84},{drumId:'hat',angle:315,radius:.50},{drumId:'hat',angle:67,radius:.50},{drumId:'hat',angle:135,radius:.50},{drumId:'hat',angle:247,radius:.50},{drumId:'rim',angle:22,radius:.62}]},
+  {name:'G-FUNK',bpm:100,circles:[{drumId:'kick',angle:270,radius:.74},{drumId:'kick',angle:22,radius:.64},{drumId:'kick',angle:157,radius:.70},{drumId:'snare',angle:0,radius:.73},{drumId:'snare',angle:180,radius:.73},{drumId:'clap',angle:0,radius:.88},{drumId:'clap',angle:180,radius:.88},{drumId:'hat',angle:315,radius:.50},{drumId:'hat',angle:45,radius:.50},{drumId:'hat',angle:135,radius:.50},{drumId:'hat',angle:225,radius:.50},{drumId:'cowbell',angle:90,radius:.65}]},
+  {name:'CLOUD RAP',bpm:65,circles:[{drumId:'kick',angle:270,radius:.76},{drumId:'kick',angle:157,radius:.66},{drumId:'snare2',angle:45,radius:.72},{drumId:'snare2',angle:225,radius:.72},{drumId:'hat',angle:270,radius:.55},{drumId:'hat',angle:337,radius:.50},{drumId:'hat',angle:0,radius:.55},{drumId:'hat',angle:90,radius:.50},{drumId:'hat',angle:135,radius:.55},{drumId:'ohat',angle:67,radius:.62},{drumId:'crash',angle:315,radius:.88}]},
+]},
+{genre:'FUNK / SOUL',beats:[
+  {name:'JAMES B',bpm:105,circles:[{drumId:'kick',angle:270,radius:.78},{drumId:'kick',angle:292,radius:.65},{drumId:'kick',angle:22,radius:.68},{drumId:'snare',angle:0,radius:.75},{drumId:'snare',angle:180,radius:.75},{drumId:'hat',angle:270,radius:.52},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:0,radius:.52},{drumId:'hat',angle:45,radius:.52},{drumId:'hat',angle:90,radius:.52},{drumId:'hat',angle:135,radius:.52},{drumId:'hat',angle:180,radius:.52},{drumId:'hat',angle:225,radius:.52},{drumId:'cowbell',angle:0,radius:.70},{drumId:'cowbell',angle:180,radius:.70}]},
+  {name:'CLYDE T',bpm:110,circles:[{drumId:'kick',angle:270,radius:.80},{drumId:'kick',angle:337,radius:.68},{drumId:'kick',angle:67,radius:.65},{drumId:'kick',angle:157,radius:.72},{drumId:'snare',angle:45,radius:.76},{drumId:'snare',angle:225,radius:.76},{drumId:'ohat',angle:0,radius:.56},{drumId:'ohat',angle:90,radius:.56},{drumId:'ohat',angle:180,radius:.56},{drumId:'hat',angle:315,radius:.48},{drumId:'hat',angle:135,radius:.48},{drumId:'rim',angle:22,radius:.66}]},
+  {name:'SOULFUL',bpm:95,circles:[{drumId:'kick',angle:270,radius:.74},{drumId:'kick',angle:112,radius:.66},{drumId:'snare',angle:0,radius:.72},{drumId:'snare',angle:157,radius:.68},{drumId:'clap',angle:180,radius:.84},{drumId:'hat',angle:270,radius:.50},{drumId:'hat',angle:315,radius:.50},{drumId:'hat',angle:0,radius:.50},{drumId:'hat',angle:45,radius:.50},{drumId:'hat',angle:90,radius:.50},{drumId:'hat',angle:135,radius:.50},{drumId:'hat',angle:180,radius:.50},{drumId:'hat',angle:225,radius:.50},{drumId:'shaker',angle:22,radius:.58}]},
+  {name:'MEMPHIS',bpm:100,circles:[{drumId:'kick',angle:270,radius:.76},{drumId:'kick',angle:22,radius:.66},{drumId:'snare',angle:90,radius:.74},{drumId:'snare',angle:270,radius:.74},{drumId:'rim',angle:0,radius:.68},{drumId:'rim',angle:180,radius:.68},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:45,radius:.52},{drumId:'hat',angle:135,radius:.52},{drumId:'hat',angle:225,radius:.52},{drumId:'cowbell',angle:45,radius:.78},{drumId:'cowbell',angle:247,radius:.74}]},
+  {name:'NEO SOUL',bpm:90,circles:[{drumId:'kick',angle:270,radius:.72},{drumId:'kick',angle:67,radius:.62},{drumId:'kick',angle:202,radius:.66},{drumId:'snare2',angle:45,radius:.74},{drumId:'snare2',angle:180,radius:.74},{drumId:'ride',angle:270,radius:.50},{drumId:'ride',angle:315,radius:.50},{drumId:'ride',angle:0,radius:.50},{drumId:'ride',angle:45,radius:.50},{drumId:'ride',angle:90,radius:.50},{drumId:'ride',angle:135,radius:.50},{drumId:'ride',angle:180,radius:.50},{drumId:'ride',angle:225,radius:.50},{drumId:'shaker',angle:337,radius:.62}]},
+  {name:'DISCO',bpm:118,circles:[{drumId:'kick',angle:270,radius:.78},{drumId:'kick',angle:0,radius:.78},{drumId:'kick',angle:90,radius:.78},{drumId:'kick',angle:180,radius:.78},{drumId:'snare',angle:0,radius:.65},{drumId:'snare',angle:180,radius:.65},{drumId:'clap',angle:0,radius:.86},{drumId:'clap',angle:180,radius:.86},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:45,radius:.52},{drumId:'hat',angle:135,radius:.52},{drumId:'hat',angle:225,radius:.52},{drumId:'ohat',angle:0,radius:.58},{drumId:'ohat',angle:90,radius:.58},{drumId:'ohat',angle:180,radius:.58}]},
+  {name:'BREAKBEAT',bpm:112,circles:[{drumId:'kick',angle:270,radius:.78},{drumId:'kick',angle:337,radius:.70},{drumId:'kick',angle:67,radius:.66},{drumId:'kick',angle:202,radius:.72},{drumId:'snare',angle:22,radius:.76},{drumId:'snare',angle:157,radius:.72},{drumId:'ohat',angle:315,radius:.55},{drumId:'ohat',angle:90,radius:.55},{drumId:'hat',angle:247,radius:.48},{drumId:'hat',angle:45,radius:.48},{drumId:'hat',angle:112,radius:.48},{drumId:'crash',angle:270,radius:.90}]},
+  {name:'P-FUNK',bpm:108,circles:[{drumId:'kick',angle:270,radius:.80},{drumId:'kick',angle:22,radius:.68},{drumId:'kick',angle:112,radius:.72},{drumId:'kick',angle:225,radius:.64},{drumId:'snare',angle:45,radius:.76},{drumId:'snare',angle:202,radius:.72},{drumId:'hat',angle:270,radius:.52},{drumId:'hat',angle:337,radius:.52},{drumId:'hat',angle:0,radius:.52},{drumId:'hat',angle:67,radius:.52},{drumId:'hat',angle:90,radius:.52},{drumId:'hat',angle:157,radius:.52},{drumId:'hat',angle:180,radius:.52},{drumId:'hat',angle:247,radius:.52},{drumId:'cowbell',angle:135,radius:.72},{drumId:'cowbell',angle:315,radius:.70}]},
+  {name:'PHILLY',bpm:102,circles:[{drumId:'kick',angle:270,radius:.76},{drumId:'kick',angle:45,radius:.66},{drumId:'kick',angle:157,radius:.70},{drumId:'snare',angle:0,radius:.73},{drumId:'snare',angle:135,radius:.68},{drumId:'snare',angle:180,radius:.73},{drumId:'ride',angle:270,radius:.52},{drumId:'ride',angle:315,radius:.52},{drumId:'ride',angle:0,radius:.52},{drumId:'ride',angle:45,radius:.52},{drumId:'ride',angle:90,radius:.52},{drumId:'ride',angle:135,radius:.52},{drumId:'ride',angle:180,radius:.52},{drumId:'ride',angle:225,radius:.52},{drumId:'shaker',angle:22,radius:.60}]},
+  {name:'SOUL JAZZ',bpm:130,circles:[{drumId:'kick',angle:270,radius:.72},{drumId:'kick',angle:67,radius:.60},{drumId:'snare',angle:0,radius:.70},{drumId:'snare',angle:157,radius:.66},{drumId:'ride',angle:270,radius:.50},{drumId:'ride',angle:315,radius:.50},{drumId:'ride',angle:0,radius:.50},{drumId:'ride',angle:45,radius:.50},{drumId:'ride',angle:90,radius:.50},{drumId:'ride',angle:135,radius:.50},{drumId:'ride',angle:180,radius:.50},{drumId:'ride',angle:225,radius:.50},{drumId:'rim',angle:22,radius:.64},{drumId:'crash',angle:270,radius:.88}]},
+]},
+{genre:'HOUSE / TECHNO',beats:[
+  {name:'4 ON FLOOR',bpm:128,circles:[{drumId:'kick',angle:270,radius:.78},{drumId:'kick',angle:0,radius:.78},{drumId:'kick',angle:90,radius:.78},{drumId:'kick',angle:180,radius:.78},{drumId:'clap',angle:0,radius:.64},{drumId:'clap',angle:180,radius:.64},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:45,radius:.52},{drumId:'hat',angle:135,radius:.52},{drumId:'hat',angle:225,radius:.52}]},
+  {name:'DEEP HOUSE',bpm:122,circles:[{drumId:'kick',angle:270,radius:.78},{drumId:'kick',angle:0,radius:.78},{drumId:'kick',angle:90,radius:.78},{drumId:'kick',angle:180,radius:.78},{drumId:'clap2',angle:0,radius:.68},{drumId:'clap2',angle:180,radius:.68},{drumId:'ohat',angle:315,radius:.54},{drumId:'ohat',angle:45,radius:.54},{drumId:'ohat',angle:135,radius:.54},{drumId:'ohat',angle:225,radius:.54},{drumId:'hat',angle:292,radius:.46},{drumId:'hat',angle:22,radius:.46}]},
+  {name:'ACID HOUSE',bpm:132,circles:[{drumId:'kick',angle:270,radius:.80},{drumId:'kick',angle:0,radius:.80},{drumId:'kick',angle:90,radius:.80},{drumId:'kick',angle:180,radius:.80},{drumId:'clap',angle:0,radius:.66},{drumId:'clap',angle:180,radius:.66},{drumId:'hat',angle:270,radius:.52},{drumId:'hat',angle:292,radius:.46},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:337,radius:.46},{drumId:'hat',angle:0,radius:.52},{drumId:'hat',angle:22,radius:.46},{drumId:'hat',angle:45,radius:.52},{drumId:'hat',angle:67,radius:.46},{drumId:'hat',angle:90,radius:.52},{drumId:'hat',angle:112,radius:.46},{drumId:'hat',angle:135,radius:.52},{drumId:'hat',angle:157,radius:.46},{drumId:'hat',angle:180,radius:.52},{drumId:'hat',angle:202,radius:.46},{drumId:'hat',angle:225,radius:.52},{drumId:'hat',angle:247,radius:.46},{drumId:'cowbell',angle:45,radius:.74}]},
+  {name:'TECHNO',bpm:138,circles:[{drumId:'kick',angle:270,radius:.82},{drumId:'kick',angle:0,radius:.82},{drumId:'kick',angle:90,radius:.82},{drumId:'kick',angle:180,radius:.82},{drumId:'kick2',angle:315,radius:.70},{drumId:'kick2',angle:135,radius:.70},{drumId:'snare2',angle:22,radius:.72},{drumId:'snare2',angle:112,radius:.68},{drumId:'snare2',angle:202,radius:.72},{drumId:'hat',angle:270,radius:.52},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:0,radius:.52},{drumId:'hat',angle:45,radius:.52},{drumId:'hat',angle:90,radius:.52},{drumId:'hat',angle:135,radius:.52},{drumId:'hat',angle:180,radius:.52},{drumId:'hat',angle:225,radius:.52},{drumId:'crash',angle:270,radius:.92}]},
+  {name:'CHICAGO',bpm:125,circles:[{drumId:'kick',angle:270,radius:.78},{drumId:'kick',angle:0,radius:.78},{drumId:'kick',angle:90,radius:.78},{drumId:'kick',angle:180,radius:.78},{drumId:'kick2',angle:337,radius:.66},{drumId:'clap',angle:0,radius:.64},{drumId:'clap',angle:180,radius:.64},{drumId:'ohat',angle:315,radius:.55},{drumId:'ohat',angle:45,radius:.55},{drumId:'ohat',angle:135,radius:.55},{drumId:'ohat',angle:225,radius:.55},{drumId:'shaker',angle:292,radius:.58}]},
+  {name:'UK GARAGE',bpm:130,circles:[{drumId:'kick',angle:270,radius:.78},{drumId:'kick',angle:22,radius:.66},{drumId:'kick',angle:112,radius:.72},{drumId:'snare',angle:0,radius:.74},{drumId:'snare',angle:157,radius:.70},{drumId:'clap2',angle:45,radius:.82},{drumId:'clap2',angle:202,radius:.78},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:337,radius:.46},{drumId:'hat',angle:0,radius:.52},{drumId:'hat',angle:22,radius:.46},{drumId:'hat',angle:90,radius:.52},{drumId:'hat',angle:135,radius:.52},{drumId:'hat',angle:180,radius:.52},{drumId:'hat',angle:247,radius:.46}]},
+  {name:'TRANCE',bpm:138,circles:[{drumId:'kick',angle:270,radius:.82},{drumId:'kick',angle:0,radius:.82},{drumId:'kick',angle:90,radius:.82},{drumId:'kick',angle:180,radius:.82},{drumId:'clap',angle:0,radius:.68},{drumId:'clap',angle:180,radius:.68},{drumId:'hat',angle:292,radius:.50},{drumId:'hat',angle:337,radius:.50},{drumId:'hat',angle:22,radius:.50},{drumId:'hat',angle:67,radius:.50},{drumId:'hat',angle:112,radius:.50},{drumId:'hat',angle:157,radius:.50},{drumId:'hat',angle:202,radius:.50},{drumId:'hat',angle:247,radius:.50},{drumId:'crash',angle:270,radius:.92}]},
+  {name:'MINIMAL',bpm:130,circles:[{drumId:'kick',angle:270,radius:.80},{drumId:'kick',angle:90,radius:.80},{drumId:'kick2',angle:0,radius:.68},{drumId:'kick2',angle:180,radius:.68},{drumId:'snare2',angle:0,radius:.72},{drumId:'snare2',angle:180,radius:.72},{drumId:'hat',angle:315,radius:.50},{drumId:'hat',angle:135,radius:.50},{drumId:'rim',angle:22,radius:.64},{drumId:'rim',angle:202,radius:.62}]},
+  {name:'ELECTRO',bpm:118,circles:[{drumId:'kick2',angle:270,radius:.82},{drumId:'kick2',angle:0,radius:.80},{drumId:'kick2',angle:90,radius:.82},{drumId:'kick2',angle:180,radius:.80},{drumId:'snare2',angle:0,radius:.72},{drumId:'snare2',angle:180,radius:.72},{drumId:'hat',angle:270,radius:.54},{drumId:'hat',angle:315,radius:.54},{drumId:'hat',angle:0,radius:.54},{drumId:'hat',angle:45,radius:.54},{drumId:'hat',angle:90,radius:.54},{drumId:'hat',angle:135,radius:.54},{drumId:'hat',angle:180,radius:.54},{drumId:'hat',angle:225,radius:.54},{drumId:'cowbell',angle:45,radius:.76}]},
+  {name:'INDUSTRIAL',bpm:145,circles:[{drumId:'kick2',angle:270,radius:.84},{drumId:'kick2',angle:0,radius:.82},{drumId:'kick2',angle:67,radius:.74},{drumId:'kick2',angle:90,radius:.84},{drumId:'kick2',angle:180,radius:.82},{drumId:'snare2',angle:22,radius:.74},{drumId:'snare2',angle:112,radius:.70},{drumId:'snare2',angle:202,radius:.74},{drumId:'hat',angle:270,radius:.52},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:0,radius:.52},{drumId:'hat',angle:45,radius:.52},{drumId:'hat',angle:90,radius:.52},{drumId:'hat',angle:135,radius:.52},{drumId:'hat',angle:180,radius:.52},{drumId:'hat',angle:225,radius:.52},{drumId:'crash',angle:270,radius:.92}]},
+]},
+{genre:'JUNGLE / DnB',beats:[
+  {name:'JUNGLE DnB',bpm:170,circles:[{drumId:'kick',angle:270,radius:.78},{drumId:'kick',angle:22,radius:.68},{drumId:'kick',angle:112,radius:.72},{drumId:'kick',angle:202,radius:.65},{drumId:'snare',angle:0,radius:.80},{drumId:'snare',angle:180,radius:.80},{drumId:'snare',angle:337,radius:.62},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:45,radius:.52},{drumId:'hat',angle:135,radius:.52},{drumId:'hat',angle:225,radius:.52},{drumId:'rim',angle:67,radius:.62},{drumId:'rim',angle:157,radius:.62},{drumId:'crash',angle:270,radius:.90}]},
+  {name:'LIQUID DnB',bpm:174,circles:[{drumId:'kick',angle:270,radius:.76},{drumId:'kick',angle:67,radius:.66},{drumId:'kick',angle:157,radius:.70},{drumId:'snare',angle:0,radius:.78},{drumId:'snare',angle:180,radius:.78},{drumId:'ohat',angle:315,radius:.56},{drumId:'ohat',angle:45,radius:.56},{drumId:'ohat',angle:135,radius:.56},{drumId:'ohat',angle:225,radius:.56},{drumId:'hat',angle:292,radius:.46},{drumId:'hat',angle:22,radius:.46},{drumId:'ride',angle:337,radius:.62}]},
+  {name:'AMEN BREAK',bpm:165,circles:[{drumId:'kick',angle:270,radius:.80},{drumId:'kick',angle:337,radius:.70},{drumId:'kick',angle:67,radius:.66},{drumId:'kick',angle:202,radius:.74},{drumId:'snare',angle:22,radius:.78},{drumId:'snare',angle:112,radius:.74},{drumId:'snare2',angle:157,radius:.68},{drumId:'hat',angle:270,radius:.52},{drumId:'hat',angle:292,radius:.46},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:45,radius:.52},{drumId:'hat',angle:90,radius:.52},{drumId:'hat',angle:135,radius:.52},{drumId:'hat',angle:180,radius:.52},{drumId:'hat',angle:247,radius:.46},{drumId:'crash',angle:270,radius:.92}]},
+  {name:'NEUROFUNK',bpm:174,circles:[{drumId:'kick2',angle:270,radius:.82},{drumId:'kick2',angle:22,radius:.70},{drumId:'kick2',angle:157,radius:.74},{drumId:'snare2',angle:0,radius:.76},{drumId:'snare2',angle:90,radius:.70},{drumId:'snare2',angle:180,radius:.76},{drumId:'hat',angle:270,radius:.52},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:22,radius:.52},{drumId:'hat',angle:45,radius:.52},{drumId:'hat',angle:112,radius:.52},{drumId:'hat',angle:135,radius:.52},{drumId:'hat',angle:202,radius:.52},{drumId:'hat',angle:247,radius:.52},{drumId:'crash',angle:270,radius:.92}]},
+  {name:'JUMP UP',bpm:174,circles:[{drumId:'kick',angle:270,radius:.82},{drumId:'kick',angle:292,radius:.72},{drumId:'kick',angle:22,radius:.68},{drumId:'kick',angle:112,radius:.76},{drumId:'kick',angle:202,radius:.70},{drumId:'snare',angle:0,radius:.80},{drumId:'snare',angle:180,radius:.80},{drumId:'snare2',angle:337,radius:.65},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:45,radius:.52},{drumId:'hat',angle:135,radius:.52},{drumId:'hat',angle:225,radius:.52},{drumId:'cowbell',angle:67,radius:.70},{drumId:'crash',angle:270,radius:.92}]},
+  {name:'HALF STEP',bpm:170,circles:[{drumId:'kick',angle:270,radius:.78},{drumId:'kick',angle:45,radius:.68},{drumId:'kick',angle:202,radius:.72},{drumId:'snare',angle:90,radius:.80},{drumId:'snare2',angle:180,radius:.68},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:337,radius:.46},{drumId:'hat',angle:0,radius:.52},{drumId:'hat',angle:22,radius:.46},{drumId:'hat',angle:45,radius:.52},{drumId:'hat',angle:67,radius:.46},{drumId:'hat',angle:135,radius:.52},{drumId:'hat',angle:157,radius:.46},{drumId:'ohat',angle:225,radius:.58},{drumId:'crash',angle:270,radius:.92}]},
+  {name:'DRUMSTEP',bpm:140,circles:[{drumId:'kick',angle:270,radius:.80},{drumId:'kick',angle:337,radius:.70},{drumId:'kick',angle:67,radius:.66},{drumId:'snare',angle:0,radius:.78},{drumId:'snare',angle:157,radius:.72},{drumId:'snare',angle:180,radius:.78},{drumId:'hat',angle:292,radius:.50},{drumId:'hat',angle:315,radius:.50},{drumId:'hat',angle:22,radius:.50},{drumId:'hat',angle:45,radius:.50},{drumId:'hat',angle:112,radius:.50},{drumId:'hat',angle:135,radius:.50},{drumId:'hat',angle:225,radius:.50},{drumId:'hat',angle:247,radius:.50},{drumId:'crash',angle:270,radius:.90}]},
+  {name:'FOOTWORK',bpm:160,circles:[{drumId:'kick',angle:270,radius:.80},{drumId:'kick',angle:315,radius:.82},{drumId:'kick',angle:0,radius:.80},{drumId:'kick',angle:45,radius:.82},{drumId:'kick',angle:90,radius:.80},{drumId:'kick',angle:135,radius:.82},{drumId:'kick',angle:180,radius:.80},{drumId:'kick',angle:225,radius:.82},{drumId:'snare',angle:0,radius:.62},{drumId:'snare',angle:180,radius:.62},{drumId:'hat',angle:315,radius:.50},{drumId:'hat',angle:45,radius:.50},{drumId:'hat',angle:135,radius:.50},{drumId:'hat',angle:225,radius:.50}]},
+  {name:'DARKSTEP',bpm:174,circles:[{drumId:'kick2',angle:270,radius:.82},{drumId:'kick2',angle:337,radius:.72},{drumId:'kick2',angle:112,radius:.76},{drumId:'kick2',angle:202,radius:.70},{drumId:'snare2',angle:22,radius:.78},{drumId:'snare2',angle:90,radius:.72},{drumId:'snare2',angle:157,radius:.74},{drumId:'hat',angle:270,radius:.52},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:0,radius:.52},{drumId:'hat',angle:45,radius:.52},{drumId:'hat',angle:90,radius:.52},{drumId:'hat',angle:135,radius:.52},{drumId:'hat',angle:180,radius:.52},{drumId:'hat',angle:225,radius:.52},{drumId:'crash',angle:270,radius:.92}]},
+  {name:'JUNGLIST',bpm:160,circles:[{drumId:'kick',angle:270,radius:.78},{drumId:'kick',angle:67,radius:.68},{drumId:'kick',angle:157,radius:.72},{drumId:'kick',angle:247,radius:.66},{drumId:'snare',angle:0,radius:.80},{drumId:'snare',angle:112,radius:.74},{drumId:'snare',angle:180,radius:.80},{drumId:'ohat',angle:315,radius:.56},{drumId:'ohat',angle:135,radius:.56},{drumId:'hat',angle:292,radius:.46},{drumId:'hat',angle:22,radius:.46},{drumId:'rim',angle:45,radius:.64},{drumId:'crash',angle:270,radius:.90}]},
+]},
+{genre:'AFROBEAT / WORLD',beats:[
+  {name:'AFROBEAT',bpm:104,circles:[{drumId:'kick',angle:270,radius:.75},{drumId:'kick',angle:22,radius:.65},{drumId:'kick',angle:135,radius:.70},{drumId:'kick',angle:225,radius:.62},{drumId:'snare',angle:45,radius:.72},{drumId:'snare',angle:157,radius:.72},{drumId:'perc',angle:270,radius:.55},{drumId:'perc',angle:315,radius:.55},{drumId:'perc',angle:0,radius:.55},{drumId:'perc',angle:45,radius:.55},{drumId:'perc',angle:90,radius:.55},{drumId:'perc',angle:135,radius:.55},{drumId:'perc',angle:180,radius:.55},{drumId:'perc',angle:225,radius:.55},{drumId:'hat',angle:337,radius:.48},{drumId:'hat',angle:67,radius:.48}]},
+  {name:'AMAPIANO',bpm:112,circles:[{drumId:'kick',angle:270,radius:.76},{drumId:'kick',angle:22,radius:.66},{drumId:'kick',angle:112,radius:.70},{drumId:'kick',angle:202,radius:.64},{drumId:'snare',angle:45,radius:.74},{drumId:'snare',angle:157,radius:.70},{drumId:'clap2',angle:0,radius:.84},{drumId:'clap2',angle:180,radius:.84},{drumId:'ohat',angle:315,radius:.54},{drumId:'ohat',angle:90,radius:.54},{drumId:'hat',angle:292,radius:.46},{drumId:'hat',angle:337,radius:.46},{drumId:'hat',angle:22,radius:.46},{drumId:'perc',angle:67,radius:.62},{drumId:'shaker',angle:135,radius:.58}]},
+  {name:'HIGHLIFE',bpm:116,circles:[{drumId:'kick',angle:270,radius:.74},{drumId:'kick',angle:67,radius:.64},{drumId:'snare',angle:0,radius:.72},{drumId:'snare',angle:157,radius:.68},{drumId:'perc',angle:315,radius:.58},{drumId:'perc',angle:45,radius:.58},{drumId:'perc',angle:135,radius:.58},{drumId:'perc',angle:225,radius:.58},{drumId:'hat',angle:292,radius:.50},{drumId:'hat',angle:337,radius:.50},{drumId:'hat',angle:22,radius:.50},{drumId:'hat',angle:67,radius:.50},{drumId:'hat',angle:112,radius:.50},{drumId:'hat',angle:157,radius:.50},{drumId:'hat',angle:202,radius:.50},{drumId:'hat',angle:247,radius:.50},{drumId:'cowbell',angle:90,radius:.70}]},
+  {name:'KUDURO',bpm:128,circles:[{drumId:'kick',angle:270,radius:.78},{drumId:'kick',angle:22,radius:.68},{drumId:'kick',angle:112,radius:.74},{drumId:'kick2',angle:337,radius:.70},{drumId:'kick2',angle:157,radius:.66},{drumId:'snare2',angle:45,radius:.72},{drumId:'snare2',angle:202,radius:.68},{drumId:'hat',angle:270,radius:.52},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:0,radius:.52},{drumId:'hat',angle:45,radius:.52},{drumId:'hat',angle:90,radius:.52},{drumId:'hat',angle:135,radius:.52},{drumId:'hat',angle:180,radius:.52},{drumId:'hat',angle:225,radius:.52}]},
+  {name:'DANCEHALL',bpm:90,circles:[{drumId:'kick',angle:270,radius:.76},{drumId:'kick',angle:112,radius:.66},{drumId:'snare',angle:0,radius:.74},{drumId:'snare',angle:180,radius:.74},{drumId:'rim',angle:45,radius:.68},{drumId:'rim',angle:225,radius:.64},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:337,radius:.52},{drumId:'hat',angle:0,radius:.52},{drumId:'hat',angle:22,radius:.52},{drumId:'hat',angle:90,radius:.52},{drumId:'hat',angle:135,radius:.52},{drumId:'hat',angle:157,radius:.52},{drumId:'hat',angle:202,radius:.52},{drumId:'hat',angle:247,radius:.52},{drumId:'cowbell',angle:157,radius:.74}]},
+  {name:'SOCA',bpm:130,circles:[{drumId:'kick',angle:270,radius:.78},{drumId:'kick',angle:22,radius:.66},{drumId:'kick',angle:157,radius:.70},{drumId:'snare',angle:45,radius:.74},{drumId:'snare',angle:225,radius:.70},{drumId:'perc',angle:270,radius:.56},{drumId:'perc',angle:315,radius:.56},{drumId:'perc',angle:0,radius:.56},{drumId:'perc',angle:45,radius:.56},{drumId:'perc',angle:90,radius:.56},{drumId:'perc',angle:135,radius:.56},{drumId:'perc',angle:180,radius:.56},{drumId:'perc',angle:225,radius:.56},{drumId:'cowbell',angle:0,radius:.74}]},
+  {name:'AFRO TRAP',bpm:130,circles:[{drumId:'kick',angle:270,radius:.80},{drumId:'kick',angle:337,radius:.70},{drumId:'kick',angle:22,radius:.66},{drumId:'kick',angle:157,radius:.74},{drumId:'snare2',angle:90,radius:.76},{drumId:'hat',angle:270,radius:.52},{drumId:'hat',angle:292,radius:.46},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:337,radius:.46},{drumId:'hat',angle:0,radius:.52},{drumId:'hat',angle:22,radius:.46},{drumId:'hat',angle:45,radius:.52},{drumId:'hat',angle:67,radius:.46},{drumId:'perc',angle:112,radius:.62},{drumId:'shaker',angle:135,radius:.58}]},
+  {name:'REGGAE',bpm:80,circles:[{drumId:'kick',angle:270,radius:.76},{drumId:'kick',angle:112,radius:.66},{drumId:'snare',angle:0,radius:.72},{drumId:'snare',angle:180,radius:.72},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:337,radius:.52},{drumId:'hat',angle:0,radius:.52},{drumId:'hat',angle:22,radius:.52},{drumId:'hat',angle:90,radius:.52},{drumId:'hat',angle:112,radius:.52},{drumId:'hat',angle:135,radius:.52},{drumId:'hat',angle:157,radius:.52},{drumId:'hat',angle:202,radius:.52},{drumId:'hat',angle:225,radius:.52},{drumId:'hat',angle:247,radius:.52},{drumId:'rim',angle:45,radius:.66}]},
+  {name:'KIZOMBA',bpm:85,circles:[{drumId:'kick',angle:270,radius:.74},{drumId:'kick',angle:45,radius:.64},{drumId:'kick',angle:202,radius:.68},{drumId:'snare',angle:0,radius:.72},{drumId:'snare',angle:157,radius:.68},{drumId:'clap2',angle:90,radius:.82},{drumId:'hat',angle:315,radius:.50},{drumId:'hat',angle:22,radius:.50},{drumId:'hat',angle:112,radius:.50},{drumId:'hat',angle:247,radius:.50},{drumId:'perc',angle:67,radius:.60}]},
+  {name:'BAILE FUNK',bpm:130,circles:[{drumId:'kick2',angle:270,radius:.82},{drumId:'kick2',angle:22,radius:.72},{drumId:'kick2',angle:112,radius:.76},{drumId:'kick2',angle:202,radius:.68},{drumId:'snare2',angle:0,radius:.74},{drumId:'snare2',angle:157,radius:.70},{drumId:'hat',angle:292,radius:.52},{drumId:'hat',angle:337,radius:.52},{drumId:'hat',angle:22,radius:.52},{drumId:'hat',angle:67,radius:.52},{drumId:'hat',angle:112,radius:.52},{drumId:'hat',angle:157,radius:.52},{drumId:'hat',angle:202,radius:.52},{drumId:'hat',angle:247,radius:.52},{drumId:'perc',angle:45,radius:.62}]},
+]},
+{genre:'ROCK / METAL',beats:[
+  {name:'CLASSIC ROCK',bpm:120,circles:[{drumId:'kick',angle:270,radius:.78},{drumId:'kick',angle:90,radius:.78},{drumId:'snare',angle:0,radius:.76},{drumId:'snare',angle:180,radius:.76},{drumId:'ride',angle:270,radius:.54},{drumId:'ride',angle:315,radius:.54},{drumId:'ride',angle:0,radius:.54},{drumId:'ride',angle:45,radius:.54},{drumId:'ride',angle:90,radius:.54},{drumId:'ride',angle:135,radius:.54},{drumId:'ride',angle:180,radius:.54},{drumId:'ride',angle:225,radius:.54},{drumId:'crash',angle:270,radius:.90}]},
+  {name:'HARD ROCK',bpm:140,circles:[{drumId:'kick',angle:270,radius:.82},{drumId:'kick',angle:0,radius:.80},{drumId:'kick',angle:90,radius:.82},{drumId:'kick',angle:180,radius:.80},{drumId:'snare',angle:0,radius:.76},{drumId:'snare',angle:180,radius:.76},{drumId:'hat',angle:270,radius:.54},{drumId:'hat',angle:315,radius:.54},{drumId:'hat',angle:0,radius:.54},{drumId:'hat',angle:45,radius:.54},{drumId:'hat',angle:90,radius:.54},{drumId:'hat',angle:135,radius:.54},{drumId:'hat',angle:180,radius:.54},{drumId:'hat',angle:225,radius:.54},{drumId:'crash',angle:270,radius:.92}]},
+  {name:'METAL',bpm:160,circles:[{drumId:'kick2',angle:270,radius:.84},{drumId:'kick2',angle:315,radius:.76},{drumId:'kick2',angle:0,radius:.84},{drumId:'kick2',angle:45,radius:.76},{drumId:'kick2',angle:90,radius:.84},{drumId:'kick2',angle:135,radius:.76},{drumId:'kick2',angle:180,radius:.84},{drumId:'kick2',angle:225,radius:.76},{drumId:'snare',angle:22,radius:.78},{drumId:'snare',angle:112,radius:.78},{drumId:'snare',angle:202,radius:.78},{drumId:'crash',angle:270,radius:.92}]},
+  {name:'PUNK',bpm:180,circles:[{drumId:'kick',angle:270,radius:.80},{drumId:'kick',angle:90,radius:.80},{drumId:'snare',angle:0,radius:.78},{drumId:'snare',angle:180,radius:.78},{drumId:'hat',angle:270,radius:.54},{drumId:'hat',angle:315,radius:.54},{drumId:'hat',angle:0,radius:.54},{drumId:'hat',angle:45,radius:.54},{drumId:'hat',angle:90,radius:.54},{drumId:'hat',angle:135,radius:.54},{drumId:'hat',angle:180,radius:.54},{drumId:'hat',angle:225,radius:.54},{drumId:'crash',angle:270,radius:.92}]},
+  {name:'GRUNGE',bpm:110,circles:[{drumId:'kick',angle:270,radius:.80},{drumId:'kick',angle:22,radius:.68},{drumId:'kick',angle:157,radius:.72},{drumId:'snare',angle:0,radius:.76},{drumId:'snare',angle:112,radius:.70},{drumId:'snare',angle:180,radius:.76},{drumId:'ohat',angle:315,radius:.56},{drumId:'ohat',angle:135,radius:.56},{drumId:'crash',angle:270,radius:.90}]},
+  {name:'POST ROCK',bpm:130,circles:[{drumId:'kick',angle:270,radius:.78},{drumId:'kick',angle:90,radius:.78},{drumId:'snare2',angle:0,radius:.74},{drumId:'snare2',angle:180,radius:.74},{drumId:'ride',angle:270,radius:.54},{drumId:'ride',angle:315,radius:.54},{drumId:'ride',angle:0,radius:.54},{drumId:'ride',angle:45,radius:.54},{drumId:'ride',angle:90,radius:.54},{drumId:'ride',angle:135,radius:.54},{drumId:'ride',angle:180,radius:.54},{drumId:'ride',angle:225,radius:.54},{drumId:'tom',angle:22,radius:.72},{drumId:'tom2',angle:67,radius:.68},{drumId:'crash',angle:270,radius:.92}]},
+  {name:'PROG ROCK',bpm:126,circles:[{drumId:'kick',angle:270,radius:.78},{drumId:'kick',angle:45,radius:.68},{drumId:'kick',angle:135,radius:.72},{drumId:'kick',angle:202,radius:.66},{drumId:'snare',angle:0,radius:.76},{drumId:'snare',angle:90,radius:.72},{drumId:'snare',angle:157,radius:.70},{drumId:'snare',angle:247,radius:.74},{drumId:'ride',angle:315,radius:.54},{drumId:'ride',angle:22,radius:.54},{drumId:'ride',angle:112,radius:.54},{drumId:'ride',angle:225,radius:.54},{drumId:'tom',angle:67,radius:.70},{drumId:'tom2',angle:157,radius:.66},{drumId:'crash',angle:270,radius:.92}]},
+  {name:'DOOM',bpm:60,circles:[{drumId:'kick',angle:270,radius:.84},{drumId:'kick',angle:90,radius:.84},{drumId:'snare',angle:0,radius:.80},{drumId:'snare',angle:180,radius:.80},{drumId:'ohat',angle:315,radius:.60},{drumId:'ohat',angle:45,radius:.60},{drumId:'ohat',angle:135,radius:.60},{drumId:'ohat',angle:225,radius:.60},{drumId:'crash',angle:270,radius:.94},{drumId:'tom',angle:45,radius:.76}]},
+  {name:'MATH ROCK',bpm:144,circles:[{drumId:'kick',angle:270,radius:.78},{drumId:'kick',angle:22,radius:.68},{drumId:'kick',angle:90,radius:.76},{drumId:'kick',angle:180,radius:.74},{drumId:'kick',angle:247,radius:.66},{drumId:'snare',angle:0,radius:.76},{drumId:'snare',angle:112,radius:.72},{drumId:'snare',angle:202,radius:.70},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:45,radius:.52},{drumId:'hat',angle:135,radius:.52},{drumId:'hat',angle:225,radius:.52},{drumId:'tom',angle:67,radius:.68},{drumId:'tom2',angle:157,radius:.64},{drumId:'crash',angle:270,radius:.90}]},
+  {name:'THRASH',bpm:200,circles:[{drumId:'kick2',angle:270,radius:.84},{drumId:'kick2',angle:315,radius:.76},{drumId:'kick2',angle:0,radius:.84},{drumId:'kick2',angle:45,radius:.76},{drumId:'kick2',angle:90,radius:.84},{drumId:'kick2',angle:135,radius:.76},{drumId:'kick2',angle:180,radius:.84},{drumId:'kick2',angle:225,radius:.76},{drumId:'snare',angle:22,radius:.78},{drumId:'snare',angle:112,radius:.78},{drumId:'snare',angle:202,radius:.78},{drumId:'crash',angle:270,radius:.92}]},
+]},
+{genre:'JAZZ / BOSSA',beats:[
+  {name:'JAZZ SWING',bpm:130,circles:[{drumId:'kick',angle:270,radius:.72},{drumId:'kick',angle:67,radius:.62},{drumId:'snare',angle:0,radius:.70},{drumId:'snare',angle:157,radius:.66},{drumId:'ride',angle:270,radius:.52},{drumId:'ride',angle:315,radius:.50},{drumId:'ride',angle:0,radius:.52},{drumId:'ride',angle:45,radius:.50},{drumId:'ride',angle:90,radius:.52},{drumId:'ride',angle:135,radius:.50},{drumId:'ride',angle:180,radius:.52},{drumId:'ride',angle:225,radius:.50},{drumId:'crash',angle:270,radius:.88}]},
+  {name:'BOSSA NOVA',bpm:120,circles:[{drumId:'kick',angle:270,radius:.72},{drumId:'kick',angle:45,radius:.60},{drumId:'kick',angle:157,radius:.65},{drumId:'rim',angle:0,radius:.70},{drumId:'rim',angle:90,radius:.65},{drumId:'rim',angle:180,radius:.70},{drumId:'rim',angle:225,radius:.60},{drumId:'hat',angle:270,radius:.50},{drumId:'hat',angle:315,radius:.50},{drumId:'hat',angle:0,radius:.50},{drumId:'hat',angle:45,radius:.50},{drumId:'hat',angle:90,radius:.50},{drumId:'hat',angle:135,radius:.50},{drumId:'hat',angle:180,radius:.50},{drumId:'hat',angle:225,radius:.50}]},
+  {name:'BEBOP',bpm:200,circles:[{drumId:'kick',angle:270,radius:.72},{drumId:'kick',angle:112,radius:.62},{drumId:'snare',angle:22,radius:.70},{drumId:'snare',angle:157,radius:.68},{drumId:'ride',angle:270,radius:.52},{drumId:'ride',angle:315,radius:.48},{drumId:'ride',angle:337,radius:.52},{drumId:'ride',angle:0,radius:.48},{drumId:'ride',angle:22,radius:.52},{drumId:'ride',angle:45,radius:.48},{drumId:'ride',angle:90,radius:.52},{drumId:'ride',angle:135,radius:.48},{drumId:'ride',angle:157,radius:.52},{drumId:'ride',angle:202,radius:.48},{drumId:'ride',angle:225,radius:.52},{drumId:'ride',angle:247,radius:.48}]},
+  {name:'SAMBA',bpm:110,circles:[{drumId:'kick',angle:270,radius:.76},{drumId:'kick',angle:67,radius:.66},{drumId:'kick',angle:157,radius:.70},{drumId:'kick',angle:225,radius:.62},{drumId:'snare',angle:0,radius:.74},{drumId:'snare',angle:112,radius:.68},{drumId:'snare',angle:180,radius:.74},{drumId:'clap',angle:0,radius:.86},{drumId:'clap',angle:180,radius:.86},{drumId:'perc',angle:315,radius:.58},{drumId:'perc',angle:45,radius:.58},{drumId:'hat',angle:337,radius:.48},{drumId:'hat',angle:22,radius:.48},{drumId:'tom',angle:90,radius:.78}]},
+  {name:'LATIN JAZZ',bpm:144,circles:[{drumId:'kick',angle:270,radius:.74},{drumId:'kick',angle:67,radius:.64},{drumId:'kick',angle:202,radius:.68},{drumId:'snare',angle:0,radius:.72},{drumId:'snare',angle:157,radius:.68},{drumId:'ride',angle:270,radius:.52},{drumId:'ride',angle:315,radius:.52},{drumId:'ride',angle:0,radius:.52},{drumId:'ride',angle:45,radius:.52},{drumId:'ride',angle:90,radius:.52},{drumId:'ride',angle:135,radius:.52},{drumId:'ride',angle:180,radius:.52},{drumId:'ride',angle:225,radius:.52},{drumId:'rim',angle:22,radius:.64},{drumId:'perc',angle:112,radius:.60}]},
+  {name:'BLUES',bpm:100,circles:[{drumId:'kick',angle:270,radius:.76},{drumId:'kick',angle:45,radius:.66},{drumId:'kick',angle:157,radius:.70},{drumId:'snare',angle:0,radius:.72},{drumId:'snare',angle:135,radius:.68},{drumId:'snare',angle:180,radius:.72},{drumId:'ride',angle:270,radius:.52},{drumId:'ride',angle:315,radius:.50},{drumId:'ride',angle:0,radius:.52},{drumId:'ride',angle:45,radius:.50},{drumId:'ride',angle:90,radius:.52},{drumId:'ride',angle:135,radius:.50},{drumId:'ride',angle:180,radius:.52},{drumId:'ride',angle:225,radius:.50}]},
+  {name:'COOL JAZZ',bpm:148,circles:[{drumId:'kick',angle:270,radius:.70},{drumId:'kick',angle:112,radius:.60},{drumId:'snare',angle:22,radius:.68},{drumId:'snare',angle:180,radius:.66},{drumId:'ride',angle:270,radius:.50},{drumId:'ride',angle:315,radius:.48},{drumId:'ride',angle:337,radius:.50},{drumId:'ride',angle:0,radius:.48},{drumId:'ride',angle:22,radius:.50},{drumId:'ride',angle:45,radius:.48},{drumId:'ride',angle:90,radius:.50},{drumId:'ride',angle:135,radius:.48},{drumId:'ride',angle:157,radius:.50},{drumId:'ride',angle:202,radius:.48},{drumId:'ride',angle:225,radius:.50},{drumId:'ride',angle:247,radius:.48}]},
+  {name:'MAMBO',bpm:192,circles:[{drumId:'kick',angle:270,radius:.76},{drumId:'kick',angle:22,radius:.66},{drumId:'kick',angle:157,radius:.70},{drumId:'snare',angle:45,radius:.74},{drumId:'snare',angle:225,radius:.70},{drumId:'perc',angle:270,radius:.56},{drumId:'perc',angle:315,radius:.56},{drumId:'perc',angle:0,radius:.56},{drumId:'perc',angle:45,radius:.56},{drumId:'perc',angle:90,radius:.56},{drumId:'perc',angle:135,radius:.56},{drumId:'perc',angle:180,radius:.56},{drumId:'perc',angle:225,radius:.56},{drumId:'cowbell',angle:0,radius:.74}]},
+  {name:'AFRO-CUBAN',bpm:168,circles:[{drumId:'kick',angle:270,radius:.74},{drumId:'kick',angle:22,radius:.64},{drumId:'kick',angle:202,radius:.68},{drumId:'snare',angle:45,radius:.70},{drumId:'snare',angle:135,radius:.68},{drumId:'perc',angle:315,radius:.56},{drumId:'perc',angle:337,radius:.54},{drumId:'perc',angle:0,radius:.56},{drumId:'perc',angle:67,radius:.54},{drumId:'perc',angle:90,radius:.56},{drumId:'perc',angle:157,radius:.54},{drumId:'perc',angle:180,radius:.56},{drumId:'perc',angle:247,radius:.54},{drumId:'ride',angle:292,radius:.50}]},
+  {name:'RUMBA',bpm:112,circles:[{drumId:'kick',angle:270,radius:.72},{drumId:'kick',angle:67,radius:.62},{drumId:'snare',angle:0,radius:.70},{drumId:'rim',angle:45,radius:.66},{drumId:'rim',angle:157,radius:.64},{drumId:'rim',angle:225,radius:.62},{drumId:'perc',angle:315,radius:.55},{drumId:'perc',angle:22,radius:.55},{drumId:'perc',angle:90,radius:.55},{drumId:'perc',angle:135,radius:.55},{drumId:'perc',angle:202,radius:.55},{drumId:'hat',angle:292,radius:.48}]},
+]},
+{genre:'LATIN / REGGAETON',beats:[
+  {name:'REGGAETON',bpm:96,circles:[{drumId:'kick',angle:270,radius:.75},{drumId:'kick',angle:337,radius:.68},{drumId:'kick',angle:67,radius:.68},{drumId:'kick',angle:157,radius:.72},{drumId:'snare',angle:0,radius:.70},{drumId:'snare',angle:112,radius:.70},{drumId:'snare',angle:180,radius:.70},{drumId:'perc',angle:315,radius:.58},{drumId:'perc',angle:45,radius:.58},{drumId:'perc',angle:135,radius:.58},{drumId:'perc',angle:225,radius:.58},{drumId:'hat',angle:292,radius:.50},{drumId:'hat',angle:22,radius:.50}]},
+  {name:'DEMBOW',bpm:100,circles:[{drumId:'kick',angle:270,radius:.78},{drumId:'kick',angle:22,radius:.66},{drumId:'kick',angle:112,radius:.72},{drumId:'kick',angle:202,radius:.68},{drumId:'snare2',angle:45,radius:.74},{drumId:'snare2',angle:157,radius:.70},{drumId:'snare2',angle:247,radius:.74},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:0,radius:.52},{drumId:'hat',angle:90,radius:.52},{drumId:'hat',angle:135,radius:.52},{drumId:'hat',angle:180,radius:.52},{drumId:'hat',angle:225,radius:.52},{drumId:'perc',angle:67,radius:.62},{drumId:'cowbell',angle:337,radius:.70}]},
+  {name:'BACHATA',bpm:128,circles:[{drumId:'kick',angle:270,radius:.74},{drumId:'kick',angle:45,radius:.64},{drumId:'kick',angle:202,radius:.68},{drumId:'snare',angle:0,radius:.72},{drumId:'snare',angle:157,radius:.68},{drumId:'rim',angle:90,radius:.70},{drumId:'rim',angle:225,radius:.66},{drumId:'hat',angle:315,radius:.50},{drumId:'hat',angle:22,radius:.50},{drumId:'hat',angle:112,radius:.50},{drumId:'hat',angle:247,radius:.50},{drumId:'perc',angle:67,radius:.60}]},
+  {name:'SALSA',bpm:200,circles:[{drumId:'kick',angle:270,radius:.76},{drumId:'kick',angle:22,radius:.66},{drumId:'kick',angle:157,radius:.70},{drumId:'snare',angle:45,radius:.74},{drumId:'snare',angle:225,radius:.70},{drumId:'perc',angle:270,radius:.56},{drumId:'perc',angle:315,radius:.56},{drumId:'perc',angle:0,radius:.56},{drumId:'perc',angle:45,radius:.56},{drumId:'perc',angle:90,radius:.56},{drumId:'perc',angle:135,radius:.56},{drumId:'perc',angle:180,radius:.56},{drumId:'perc',angle:225,radius:.56},{drumId:'cowbell',angle:0,radius:.74}]},
+  {name:'MERENGUE',bpm:160,circles:[{drumId:'kick',angle:270,radius:.78},{drumId:'kick',angle:90,radius:.78},{drumId:'snare',angle:0,radius:.74},{drumId:'snare',angle:180,radius:.74},{drumId:'hat',angle:270,radius:.52},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:0,radius:.52},{drumId:'hat',angle:45,radius:.52},{drumId:'hat',angle:90,radius:.52},{drumId:'hat',angle:135,radius:.52},{drumId:'hat',angle:180,radius:.52},{drumId:'hat',angle:225,radius:.52},{drumId:'perc',angle:22,radius:.60},{drumId:'perc',angle:112,radius:.60},{drumId:'perc',angle:202,radius:.60}]},
+  {name:'CUMBIA',bpm:112,circles:[{drumId:'kick',angle:270,radius:.76},{drumId:'kick',angle:67,radius:.66},{drumId:'kick',angle:202,radius:.68},{drumId:'snare',angle:0,radius:.72},{drumId:'snare',angle:135,radius:.68},{drumId:'perc',angle:315,radius:.58},{drumId:'perc',angle:22,radius:.58},{drumId:'perc',angle:112,radius:.58},{drumId:'perc',angle:247,radius:.58},{drumId:'hat',angle:292,radius:.50},{drumId:'hat',angle:45,radius:.50},{drumId:'hat',angle:157,radius:.50},{drumId:'hat',angle:225,radius:.50}]},
+  {name:'TRAP LATINO',bpm:130,circles:[{drumId:'kick',angle:270,radius:.80},{drumId:'kick',angle:337,radius:.70},{drumId:'kick',angle:22,radius:.66},{drumId:'kick',angle:202,radius:.74},{drumId:'snare2',angle:90,radius:.76},{drumId:'hat',angle:270,radius:.52},{drumId:'hat',angle:292,radius:.46},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:337,radius:.46},{drumId:'hat',angle:0,radius:.52},{drumId:'hat',angle:22,radius:.46},{drumId:'hat',angle:45,radius:.52},{drumId:'hat',angle:67,radius:.46},{drumId:'perc',angle:112,radius:.62},{drumId:'cowbell',angle:157,radius:.72}]},
+  {name:'LATIN TRAP',bpm:144,circles:[{drumId:'kick',angle:270,radius:.82},{drumId:'kick',angle:22,radius:.70},{drumId:'kick',angle:157,radius:.74},{drumId:'snare2',angle:90,radius:.78},{drumId:'hat',angle:292,radius:.52},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:337,radius:.46},{drumId:'hat',angle:0,radius:.52},{drumId:'hat',angle:22,radius:.46},{drumId:'hat',angle:45,radius:.52},{drumId:'hat',angle:112,radius:.52},{drumId:'hat',angle:157,radius:.52},{drumId:'hat',angle:202,radius:.52},{drumId:'hat',angle:247,radius:.52},{drumId:'shaker',angle:67,radius:.60}]},
+  {name:'CHAMPETA',bpm:108,circles:[{drumId:'kick',angle:270,radius:.76},{drumId:'kick',angle:45,radius:.66},{drumId:'kick',angle:202,radius:.70},{drumId:'snare',angle:0,radius:.72},{drumId:'snare',angle:157,radius:.68},{drumId:'perc',angle:315,radius:.56},{drumId:'perc',angle:22,radius:.56},{drumId:'perc',angle:90,radius:.56},{drumId:'perc',angle:135,radius:.56},{drumId:'perc',angle:225,radius:.56},{drumId:'cowbell',angle:67,radius:.68}]},
+  {name:'VALLENATO',bpm:96,circles:[{drumId:'kick',angle:270,radius:.74},{drumId:'kick',angle:67,radius:.64},{drumId:'snare',angle:0,radius:.70},{drumId:'rim',angle:45,radius:.66},{drumId:'rim',angle:157,radius:.64},{drumId:'rim',angle:225,radius:.62},{drumId:'perc',angle:315,radius:.56},{drumId:'perc',angle:22,radius:.56},{drumId:'perc',angle:112,radius:.56},{drumId:'perc',angle:247,radius:.56},{drumId:'shaker',angle:180,radius:.58}]},
+]},
+{genre:'TRAP / DRILL',beats:[
+  {name:'TRAP BANGER',bpm:140,circles:[{drumId:'kick',angle:270,radius:.80},{drumId:'kick',angle:337,radius:.70},{drumId:'kick',angle:22,radius:.65},{drumId:'kick',angle:157,radius:.75},{drumId:'snare',angle:90,radius:.72},{drumId:'hat',angle:270,radius:.55},{drumId:'hat',angle:292,radius:.48},{drumId:'hat',angle:315,radius:.55},{drumId:'hat',angle:337,radius:.48},{drumId:'hat',angle:0,radius:.55},{drumId:'hat',angle:22,radius:.48},{drumId:'hat',angle:45,radius:.55},{drumId:'hat',angle:67,radius:.48},{drumId:'hat',angle:90,radius:.55},{drumId:'hat',angle:112,radius:.48},{drumId:'hat',angle:135,radius:.55}]},
+  {name:'ATLANTA',bpm:135,circles:[{drumId:'kick',angle:270,radius:.80},{drumId:'kick',angle:292,radius:.70},{drumId:'kick',angle:22,radius:.68},{drumId:'kick',angle:112,radius:.76},{drumId:'snare2',angle:0,radius:.74},{drumId:'snare2',angle:135,radius:.68},{drumId:'snare2',angle:180,radius:.74},{drumId:'hat',angle:315,radius:.54},{drumId:'hat',angle:337,radius:.48},{drumId:'hat',angle:45,radius:.54},{drumId:'hat',angle:67,radius:.48},{drumId:'hat',angle:135,radius:.54},{drumId:'hat',angle:202,radius:.54},{drumId:'ohat',angle:157,radius:.60}]},
+  {name:'UK DRILL',bpm:140,circles:[{drumId:'kick',angle:270,radius:.82},{drumId:'kick',angle:337,radius:.72},{drumId:'kick',angle:67,radius:.68},{drumId:'kick',angle:202,radius:.76},{drumId:'snare',angle:22,radius:.78},{drumId:'snare',angle:112,radius:.72},{drumId:'hat',angle:292,radius:.52},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:0,radius:.52},{drumId:'hat',angle:22,radius:.46},{drumId:'hat',angle:45,radius:.52},{drumId:'hat',angle:90,radius:.52},{drumId:'hat',angle:135,radius:.52},{drumId:'hat',angle:157,radius:.46},{drumId:'hat',angle:225,radius:.52},{drumId:'crash',angle:270,radius:.92}]},
+  {name:'MEMPHIS',bpm:130,circles:[{drumId:'kick',angle:270,radius:.78},{drumId:'kick',angle:22,radius:.68},{drumId:'kick',angle:157,radius:.72},{drumId:'kick2',angle:247,radius:.66},{drumId:'snare2',angle:45,radius:.74},{drumId:'snare2',angle:180,radius:.74},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:337,radius:.47},{drumId:'hat',angle:0,radius:.52},{drumId:'hat',angle:22,radius:.47},{drumId:'hat',angle:67,radius:.52},{drumId:'hat',angle:90,radius:.52},{drumId:'hat',angle:112,radius:.47},{drumId:'hat',angle:135,radius:.52},{drumId:'ohat',angle:225,radius:.60}]},
+  {name:'PLUGGNB',bpm:80,circles:[{drumId:'kick',angle:270,radius:.78},{drumId:'kick',angle:247,radius:.68},{drumId:'kick',angle:292,radius:.70},{drumId:'snare2',angle:90,radius:.74},{drumId:'hat',angle:270,radius:.55},{drumId:'hat',angle:292,radius:.47},{drumId:'hat',angle:315,radius:.55},{drumId:'hat',angle:337,radius:.47},{drumId:'hat',angle:0,radius:.55},{drumId:'hat',angle:22,radius:.47},{drumId:'hat',angle:45,radius:.55},{drumId:'hat',angle:67,radius:.47},{drumId:'ohat',angle:112,radius:.60},{drumId:'ohat',angle:202,radius:.60}]},
+  {name:'RAGE BEAT',bpm:150,circles:[{drumId:'kick2',angle:270,radius:.82},{drumId:'kick2',angle:337,radius:.72},{drumId:'kick2',angle:22,radius:.68},{drumId:'kick2',angle:157,radius:.76},{drumId:'snare2',angle:90,radius:.78},{drumId:'hat',angle:270,radius:.54},{drumId:'hat',angle:292,radius:.47},{drumId:'hat',angle:315,radius:.54},{drumId:'hat',angle:337,radius:.47},{drumId:'hat',angle:0,radius:.54},{drumId:'hat',angle:22,radius:.47},{drumId:'hat',angle:45,radius:.54},{drumId:'hat',angle:67,radius:.47},{drumId:'hat',angle:90,radius:.54},{drumId:'hat',angle:112,radius:.47},{drumId:'hat',angle:135,radius:.54},{drumId:'hat',angle:157,radius:.47},{drumId:'hat',angle:180,radius:.54},{drumId:'hat',angle:202,radius:.47},{drumId:'hat',angle:225,radius:.54},{drumId:'hat',angle:247,radius:.47}]},
+  {name:'PHONK',bpm:130,circles:[{drumId:'kick',angle:270,radius:.80},{drumId:'kick',angle:22,radius:.68},{drumId:'kick',angle:112,radius:.74},{drumId:'kick',angle:202,radius:.70},{drumId:'snare',angle:45,radius:.76},{drumId:'snare',angle:157,radius:.72},{drumId:'ohat',angle:315,radius:.58},{drumId:'ohat',angle:90,radius:.58},{drumId:'hat',angle:292,radius:.48},{drumId:'hat',angle:337,radius:.48},{drumId:'hat',angle:22,radius:.48},{drumId:'hat',angle:67,radius:.48},{drumId:'cowbell',angle:135,radius:.68}]},
+  {name:'RAGE TRAP',bpm:160,circles:[{drumId:'kick',angle:270,radius:.80},{drumId:'kick',angle:315,radius:.72},{drumId:'kick',angle:0,radius:.80},{drumId:'kick',angle:45,radius:.70},{drumId:'kick',angle:90,radius:.80},{drumId:'kick',angle:135,radius:.72},{drumId:'kick',angle:180,radius:.80},{drumId:'kick',angle:225,radius:.70},{drumId:'snare2',angle:22,radius:.74},{drumId:'snare2',angle:112,radius:.70},{drumId:'snare2',angle:202,radius:.74},{drumId:'hat',angle:292,radius:.52},{drumId:'hat',angle:337,radius:.52},{drumId:'hat',angle:67,radius:.52},{drumId:'hat',angle:157,radius:.52}]},
+  {name:'HARD TRAP',bpm:145,circles:[{drumId:'kick2',angle:270,radius:.84},{drumId:'kick2',angle:337,radius:.74},{drumId:'kick2',angle:22,radius:.70},{drumId:'kick2',angle:202,radius:.78},{drumId:'snare',angle:0,radius:.78},{drumId:'snare',angle:112,radius:.72},{drumId:'snare',angle:180,radius:.78},{drumId:'hat',angle:315,radius:.54},{drumId:'hat',angle:337,radius:.47},{drumId:'hat',angle:22,radius:.54},{drumId:'hat',angle:45,radius:.47},{drumId:'hat',angle:135,radius:.54},{drumId:'hat',angle:157,radius:.47},{drumId:'crash',angle:270,radius:.92}]},
+  {name:'CLOUD TRAP',bpm:72,circles:[{drumId:'kick',angle:270,radius:.76},{drumId:'kick',angle:157,radius:.66},{drumId:'snare2',angle:45,radius:.72},{drumId:'snare2',angle:225,radius:.72},{drumId:'hat',angle:270,radius:.54},{drumId:'hat',angle:337,radius:.49},{drumId:'hat',angle:0,radius:.54},{drumId:'hat',angle:90,radius:.49},{drumId:'hat',angle:112,radius:.44},{drumId:'hat',angle:135,radius:.54},{drumId:'hat',angle:202,radius:.49},{drumId:'ohat',angle:67,radius:.62},{drumId:'crash',angle:315,radius:.88}]},
+]},
+{genre:'R&B / NEO-SOUL',beats:[
+  {name:'SLOW JAM',bpm:68,circles:[{drumId:'kick',angle:270,radius:.76},{drumId:'kick',angle:45,radius:.66},{drumId:'kick',angle:157,radius:.70},{drumId:'snare',angle:0,radius:.74},{drumId:'snare',angle:157,radius:.68},{drumId:'clap',angle:180,radius:.84},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:0,radius:.52},{drumId:'hat',angle:45,radius:.52},{drumId:'hat',angle:90,radius:.52},{drumId:'hat',angle:135,radius:.52},{drumId:'hat',angle:180,radius:.52},{drumId:'hat',angle:225,radius:.52},{drumId:'shaker',angle:22,radius:.60}]},
+  {name:'CONTEMP',bpm:85,circles:[{drumId:'kick',angle:270,radius:.74},{drumId:'kick',angle:22,radius:.64},{drumId:'kick',angle:112,radius:.68},{drumId:'snare',angle:0,radius:.72},{drumId:'snare',angle:180,radius:.72},{drumId:'clap2',angle:0,radius:.86},{drumId:'clap2',angle:180,radius:.86},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:337,radius:.47},{drumId:'hat',angle:45,radius:.52},{drumId:'hat',angle:67,radius:.47},{drumId:'hat',angle:135,radius:.52},{drumId:'hat',angle:202,radius:.52},{drumId:'shaker',angle:157,radius:.60}]},
+  {name:'NEO SOUL',bpm:90,circles:[{drumId:'kick',angle:270,radius:.72},{drumId:'kick',angle:67,radius:.62},{drumId:'kick',angle:202,radius:.66},{drumId:'snare2',angle:45,radius:.74},{drumId:'snare2',angle:180,radius:.74},{drumId:'ride',angle:270,radius:.50},{drumId:'ride',angle:315,radius:.50},{drumId:'ride',angle:0,radius:.50},{drumId:'ride',angle:45,radius:.50},{drumId:'ride',angle:90,radius:.50},{drumId:'ride',angle:135,radius:.50},{drumId:'ride',angle:180,radius:.50},{drumId:'ride',angle:225,radius:.50},{drumId:'shaker',angle:337,radius:.62}]},
+  {name:'90s RNB',bpm:95,circles:[{drumId:'kick',angle:270,radius:.74},{drumId:'kick',angle:22,radius:.64},{drumId:'kick',angle:157,radius:.68},{drumId:'snare',angle:0,radius:.72},{drumId:'snare',angle:135,radius:.66},{drumId:'snare',angle:180,radius:.72},{drumId:'clap',angle:0,radius:.84},{drumId:'clap',angle:180,radius:.84},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:337,radius:.47},{drumId:'hat',angle:22,radius:.52},{drumId:'hat',angle:45,radius:.52},{drumId:'hat',angle:67,radius:.47},{drumId:'hat',angle:135,radius:.52}]},
+  {name:'TRAP SOUL',bpm:70,circles:[{drumId:'kick',angle:270,radius:.80},{drumId:'kick',angle:247,radius:.68},{drumId:'kick',angle:292,radius:.70},{drumId:'snare2',angle:90,radius:.75},{drumId:'hat',angle:270,radius:.55},{drumId:'hat',angle:292,radius:.48},{drumId:'hat',angle:315,radius:.55},{drumId:'hat',angle:337,radius:.48},{drumId:'hat',angle:0,radius:.55},{drumId:'hat',angle:22,radius:.48},{drumId:'hat',angle:45,radius:.55},{drumId:'hat',angle:67,radius:.48},{drumId:'ohat',angle:135,radius:.60},{drumId:'ohat',angle:225,radius:.60}]},
+  {name:'CHILL RNB',bpm:78,circles:[{drumId:'kick',angle:270,radius:.72},{drumId:'kick',angle:112,radius:.62},{drumId:'snare',angle:45,radius:.70},{drumId:'snare',angle:202,radius:.68},{drumId:'hat',angle:315,radius:.50},{drumId:'hat',angle:337,radius:.50},{drumId:'hat',angle:0,radius:.50},{drumId:'hat',angle:22,radius:.50},{drumId:'hat',angle:67,radius:.50},{drumId:'hat',angle:90,radius:.50},{drumId:'hat',angle:135,radius:.50},{drumId:'hat',angle:157,radius:.50},{drumId:'hat',angle:202,radius:.50},{drumId:'hat',angle:225,radius:.50},{drumId:'hat',angle:247,radius:.50},{drumId:'shaker',angle:45,radius:.60}]},
+  {name:'BOUNCE',bpm:100,circles:[{drumId:'kick',angle:270,radius:.76},{drumId:'kick',angle:22,radius:.66},{drumId:'kick',angle:112,radius:.72},{drumId:'snare',angle:0,radius:.74},{drumId:'snare',angle:157,radius:.70},{drumId:'snare',angle:180,radius:.74},{drumId:'clap2',angle:45,radius:.86},{drumId:'clap2',angle:225,radius:.82},{drumId:'hat',angle:337,radius:.52},{drumId:'hat',angle:67,radius:.52},{drumId:'hat',angle:135,radius:.52},{drumId:'hat',angle:247,radius:.52}]},
+  {name:'SMOOTH',bpm:88,circles:[{drumId:'kick',angle:270,radius:.72},{drumId:'kick',angle:67,radius:.62},{drumId:'snare',angle:0,radius:.70},{drumId:'snare',angle:157,radius:.66},{drumId:'ride',angle:270,radius:.50},{drumId:'ride',angle:315,radius:.48},{drumId:'ride',angle:0,radius:.50},{drumId:'ride',angle:45,radius:.48},{drumId:'ride',angle:90,radius:.50},{drumId:'ride',angle:135,radius:.48},{drumId:'ride',angle:180,radius:.50},{drumId:'ride',angle:225,radius:.48},{drumId:'shaker',angle:22,radius:.60}]},
+  {name:'FUTURE RNB',bpm:102,circles:[{drumId:'kick',angle:270,radius:.76},{drumId:'kick',angle:337,radius:.66},{drumId:'kick',angle:112,radius:.70},{drumId:'snare2',angle:0,radius:.72},{drumId:'snare2',angle:157,radius:.68},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:337,radius:.47},{drumId:'hat',angle:22,radius:.52},{drumId:'hat',angle:45,radius:.47},{drumId:'hat',angle:135,radius:.52},{drumId:'hat',angle:157,radius:.47},{drumId:'hat',angle:225,radius:.52},{drumId:'hat',angle:247,radius:.47},{drumId:'ohat',angle:90,radius:.60},{drumId:'clap2',angle:180,radius:.84}]},
+  {name:'CHURCH RNB',bpm:76,circles:[{drumId:'kick',angle:270,radius:.74},{drumId:'kick',angle:45,radius:.64},{drumId:'kick',angle:202,radius:.68},{drumId:'snare',angle:0,radius:.72},{drumId:'snare',angle:180,radius:.72},{drumId:'clap',angle:0,radius:.86},{drumId:'clap2',angle:180,radius:.86},{drumId:'hat',angle:315,radius:.52},{drumId:'hat',angle:22,radius:.52},{drumId:'hat',angle:90,radius:.52},{drumId:'hat',angle:135,radius:.52},{drumId:'hat',angle:225,radius:.52},{drumId:'shaker',angle:67,radius:.62}]},
+]},
 ];
-
-function buildPresets(){
-  const grid=document.getElementById('beat-grid');
-  grid.innerHTML='';
-  BEAT_LIBRARY.forEach((beat,i)=>{
-    const btn=document.createElement('button');
-    btn.className='beat-btn';
-    btn.innerHTML=`<span class="beat-num">${i+1}</span><span class="beat-name">${beat.name}</span>`;
+let beatPage=0;
+function beatPageNav(dir){beatPage=((beatPage+dir)+BEAT_PAGES.length)%BEAT_PAGES.length;buildBeatGrid();}
+function buildBeatGrid(){
+  const pg=BEAT_PAGES[beatPage];
+  document.getElementById('beat-genre-lbl').textContent=pg.genre;
+  document.getElementById('beat-page-info').textContent='PG '+(beatPage+1)+'/10';
+  const grid=document.getElementById('beat-grid');grid.innerHTML='';
+  pg.beats.forEach((beat,i)=>{
+    const btn=document.createElement('button');btn.className='beat-btn';
+    btn.innerHTML='<span class="beat-num">'+(i+1)+'</span><span class="beat-name">'+beat.name+'</span>';
     btn.addEventListener('click',()=>{
-      locks=[];
-      beat.circles.forEach(p=>addLock(p.drumId,p.angle,p.radius));
-      // Set BPM to match the beat
-      radarBpm=beat.bpm;
-      document.getElementById('bpm-display').textContent=radarBpm;
+      locks=[];beat.circles.forEach(p=>addLock(p.drumId,p.angle,p.radius));
+      radarBpm=beat.bpm;document.getElementById('bpm-display').textContent=radarBpm;
       document.getElementById('beat-lib-bpm').textContent=beat.bpm+' BPM';
-      // Switch to radar mode automatically
-      if(currentMode!=='radar') setMode('radar');
-      grid.querySelectorAll('.beat-btn').forEach(b=>b.classList.remove('active'));
-      btn.classList.add('active');
+      if(currentMode!=='radar')setMode('radar');
+      grid.querySelectorAll('.beat-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');
     });
     grid.appendChild(btn);
   });
 }
+function buildPresets(){buildBeatGrid();}
+
 
 function buildBeatDots(){const c=document.getElementById('beat-dots');for(let i=0;i<16;i++){const d=document.createElement('div');d.className='beat-dot';c.appendChild(d);}}
 
@@ -1236,9 +1284,246 @@ document.getElementById('startBtn').addEventListener('click',initAudio);
 document.getElementById('startBtn').addEventListener('touchend',e=>{e.preventDefault();initAudio();});
 drumLooper[1]=makeLp();drumLooper[2]=makeLp();drumNextCh=3;
 otoLooper[1]=makeLpO();otoNextCh=2;
-buildSidebar();buildPresets();buildBeatDots();
+
+// ════════════════════════════════════════
+//  INSTRUMENT SWITCHER
+// ════════════════════════════════════════
+let currentInst='oto';
+function setInst(inst){
+  currentInst=inst;
+  document.querySelectorAll('.inst-tab').forEach((t,i)=>t.classList.toggle('active',['oto','piano','guitar'][i]===inst));
+  document.getElementById('oto-body').style.display=inst==='oto'?'flex':'none';
+  document.getElementById('piano-body').style.display=inst==='piano'?'flex':'none';
+  document.getElementById('guitar-body').style.display=inst==='guitar'?'flex':'none';
+  const titles={oto:'OTOMATONE',piano:'PIANO',guitar:'GUITAR'};
+  document.getElementById('right-title').textContent=titles[inst];
+  setTimeout(()=>{if(inst==='piano')drawPianoKeys();if(inst==='guitar')drawGuitarNeck();},40);
+}
+
+// ════════════════════════════════════════
+//  PIANO ENGINE
+// ════════════════════════════════════════
+const PIANO_VOICES=[
+  {name:'GRAND',  attack:.005,decay:.4,sustain:.15,release:1.8,type:'triangle',fq:4000,Q:.8},
+  {name:'RHODES', attack:.008,decay:.6,sustain:.22,release:2.2,type:'sawtooth',fq:2500,Q:1.2},
+  {name:'UPRIGHT',attack:.003,decay:.2,sustain:.1, release:.8, type:'triangle',fq:1800,Q:.6},
+  {name:'ELEC',   attack:.002,decay:.18,sustain:.08,release:.5,type:'square',  fq:1200,Q:1.5},
+  {name:'PAD',    attack:.15, decay:.8, sustain:.4, release:3,  type:'sine',   fq:3000,Q:.5},
+  {name:'SYNTH',  attack:.005,decay:.25,sustain:.2, release:1,  type:'sawtooth',fq:800,Q:2},
+];
+let pianoVoice=0,pianoOct=4;
+const WHITE=[0,2,4,5,7,9,11];
+const BLACK=[1,3,-1,6,8,10,-1];
+const NOTE_NAMES=['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
+let pianoOn={};
+function noteHz(semi,oct){return 440*Math.pow(2,(semi-9+(oct-4)*12)/12);}
+
+function buildPianoVoices(){
+  const row=document.getElementById('piano-voice-row');row.innerHTML='';
+  PIANO_VOICES.forEach((v,i)=>{
+    const b=document.createElement('button');b.className='piano-voice-btn'+(i===0?' active':'');
+    b.textContent=v.name;b.onclick=()=>{pianoVoice=i;row.querySelectorAll('.piano-voice-btn').forEach((x,j)=>x.classList.toggle('active',j===i));};
+    row.appendChild(b);
+  });
+}
+function pianoOctave(d){pianoOct=Math.max(1,Math.min(7,pianoOct+d));document.getElementById('piano-oct-lbl').textContent='OCT '+pianoOct;drawPianoKeys();}
+
+function drawPianoKeys(){
+  const cv=document.getElementById('piano-canvas');if(!cv)return;
+  const wr=cv.parentElement;cv.width=wr.clientWidth||300;cv.height=wr.clientHeight||110;
+  const cx=cv.getContext('2d');const W=cv.width,H=cv.height;
+  const nW=14,ww=W/nW;
+  cx.clearRect(0,0,W,H);
+  for(let i=0;i<nW;i++){
+    const note=WHITE[i%7],oct=pianoOct+Math.floor(i/7),key=note+'_'+oct,act=pianoOn[key];
+    cx.fillStyle=act?'rgba(139,92,246,0.7)':'rgba(220,225,235,0.92)';
+    cx.strokeStyle='rgba(0,0,0,0.45)';cx.lineWidth=1;
+    cx.fillRect(i*ww+1,0,ww-2,H);cx.strokeRect(i*ww+1,0,ww-2,H);
+    cx.fillStyle=act?'white':'rgba(40,20,60,0.65)';
+    cx.font=Math.max(7,ww*.28)+'px Orbitron,monospace';cx.textAlign='center';cx.textBaseline='bottom';
+    if(i%7===0){cx.fillText('C'+(oct),i*ww+ww/2,H-3);}
+  }
+  const bh=H*.58;
+  for(let i=0;i<nW;i++){
+    const bi=i%7;if(BLACK[bi]<0)continue;
+    const note=BLACK[bi],oct=pianoOct+Math.floor(i/7),key=note+'_'+oct,act=pianoOn[key];
+    cx.fillStyle=act?'rgba(139,92,246,0.9)':'rgba(10,5,20,0.94)';
+    cx.strokeStyle='rgba(139,92,246,0.28)';cx.lineWidth=1;
+    cx.fillRect(i*ww+ww*.6,0,ww*.72,bh);cx.strokeRect(i*ww+ww*.6,0,ww*.72,bh);
+  }
+}
+
+function trigPiano(note,oct){
+  if(!isInit)return;
+  const key=note+'_'+oct;if(pianoOn[key])return;
+  const hz=noteHz(note,oct);const v=PIANO_VOICES[pianoVoice];
+  const osc=ctx.createOscillator();osc.type=v.type;osc.frequency.value=hz;
+  const osc2=ctx.createOscillator();osc2.type='sine';osc2.frequency.value=hz*2.005;
+  const fil=ctx.createBiquadFilter();fil.type='lowpass';fil.frequency.value=v.fq;fil.Q.value=v.Q;
+  const env=ctx.createGain();env.gain.setValueAtTime(0,ctx.currentTime);
+  env.gain.linearRampToValueAtTime(.55,ctx.currentTime+v.attack);
+  env.gain.exponentialRampToValueAtTime(Math.max(.001,v.sustain),ctx.currentTime+v.attack+v.decay);
+  const g2=ctx.createGain();g2.gain.value=.12;
+  const rev=parseFloat(document.getElementById('piano-expr-slider').value);
+  const dry=ctx.createGain();dry.gain.value=1-rev*.4;
+  osc.connect(fil);osc2.connect(g2);g2.connect(fil);fil.connect(env);env.connect(dry);dry.connect(ctx.destination);
+  // Reverb
+  if(!window._pianoRev){
+    const len=ctx.sampleRate*2;const buf=ctx.createBuffer(2,len,ctx.sampleRate);
+    for(let c=0;c<2;c++){const d=buf.getChannelData(c);for(let i=0;i<len;i++)d[i]=(Math.random()*2-1)*Math.pow(1-i/len,2.2);}
+    window._pianoRev=ctx.createConvolver();window._pianoRev.buffer=buf;window._pianoRev.connect(ctx.destination);
+  }
+  const rg=ctx.createGain();rg.gain.value=rev*.4;env.connect(rg);rg.connect(window._pianoRev);
+  osc.start();osc2.start();
+  pianoOn[key]={osc,osc2,env,v};drawPianoKeys();
+}
+function relPiano(key){
+  const n=pianoOn[key];if(!n)return;
+  const now=ctx.currentTime;const sus=parseFloat(document.getElementById('piano-sustain').value);
+  n.env.gain.cancelScheduledValues(now);n.env.gain.setValueAtTime(n.env.gain.value,now);
+  n.env.gain.exponentialRampToValueAtTime(.0001,now+sus);
+  setTimeout(()=>{try{n.osc.stop();n.osc2.stop();}catch(e){}},sus*1000+100);
+  delete pianoOn[key];drawPianoKeys();
+}
+function pianoHit(e,end){
+  const cv=document.getElementById('piano-canvas');
+  const r=cv.getBoundingClientRect();
+  const px=(e.touches?e.touches[0].clientX:e.clientX);
+  const py=(e.touches?e.touches[0].clientY:e.clientY);
+  const x=(px-r.left)*(cv.width/r.width),y=(py-r.top)*(cv.height/r.height);
+  const W=cv.width,H=cv.height,nW=14,ww=W/nW,bh=H*.58;
+  if(end){Object.keys(pianoOn).forEach(k=>relPiano(k));return;}
+  let hit=false;
+  for(let i=0;i<nW;i++){const bi=i%7;if(BLACK[bi]<0)continue;const bx=i*ww+ww*.6;if(x>=bx&&x<=bx+ww*.72&&y<=bh){trigPiano(BLACK[bi],pianoOct+Math.floor(i/7));hit=true;break;}}
+  if(!hit){const wi=Math.floor(x/ww);if(wi>=0&&wi<nW)trigPiano(WHITE[wi%7],pianoOct+Math.floor(wi/7));}
+}
+const pvc=document.getElementById('piano-canvas');
+if(pvc){
+  pvc.addEventListener('touchstart',e=>{e.preventDefault();pianoHit(e,false);},{passive:false});
+  pvc.addEventListener('touchend',e=>{e.preventDefault();pianoHit(e,true);},{passive:false});
+  pvc.addEventListener('touchcancel',e=>{e.preventDefault();pianoHit(e,true);},{passive:false});
+  pvc.addEventListener('mousedown',e=>pianoHit(e,false));
+  pvc.addEventListener('mouseup',e=>pianoHit(e,true));
+  pvc.addEventListener('mouseleave',e=>pianoHit(e,true));
+}
+
+// ════════════════════════════════════════
+//  SLIDE GUITAR ENGINE
+// ════════════════════════════════════════
+const TUNINGS=[
+  {name:'OPEN E',strings:[40,47,52,56,59,64]},
+  {name:'OPEN G',strings:[38,43,50,55,59,62]},
+  {name:'OPEN D',strings:[38,45,50,54,57,62]},
+  {name:'STD',   strings:[40,45,50,55,59,64]},
+  {name:'DROP D',strings:[38,45,50,55,59,64]},
+  {name:'DADD',  strings:[38,45,50,55,62,62]},
+];
+let guitarTuning=0,guitarSliding=false;
+let gOsc=null,gOsc2=null,gFilter=null,gEnv=null,gStr=-1,gFret=-1;
+const FRETS=12;
+
+function buildGuitarTunings(){
+  const row=document.getElementById('guitar-tuning-row');row.innerHTML='';
+  TUNINGS.forEach((t,i)=>{
+    const b=document.createElement('button');b.className='guitar-tune-btn'+(i===0?' active':'');
+    b.textContent=t.name;b.onclick=()=>{guitarTuning=i;row.querySelectorAll('.guitar-tune-btn').forEach((x,j)=>x.classList.toggle('active',j===i));drawGuitarNeck();stopGuitar();};
+    row.appendChild(b);
+  });
+}
+
+function drawGuitarNeck(){
+  const cv=document.getElementById('guitar-canvas');if(!cv)return;
+  const wr=cv.parentElement;cv.width=wr.clientWidth||300;cv.height=wr.clientHeight||120;
+  const cx=cv.getContext('2d');const W=cv.width,H=cv.height;
+  cx.fillStyle='rgba(35,18,5,0.97)';cx.fillRect(0,0,W,H);
+  const nS=6,nF=FRETS+1,sH=H/nS,fW=W/nF;
+  // Fret markers
+  [3,5,7,9,12].forEach(f=>{if(f<=FRETS){cx.fillStyle='rgba(255,255,255,0.05)';cx.fillRect(f*fW,0,fW,H);}});
+  // Fret lines
+  for(let f=0;f<=FRETS;f++){cx.strokeStyle=f===0?'rgba(0,255,136,0.45)':'rgba(0,255,136,0.1)';cx.lineWidth=f===0?3:1;cx.beginPath();cx.moveTo(f*fW,0);cx.lineTo(f*fW,H);cx.stroke();}
+  // Strings
+  for(let s=0;s<nS;s++){const y=(s+.5)*sH;cx.strokeStyle=`rgba(200,175,110,${0.28+s*.04})`;cx.lineWidth=.7+s*.35;cx.beginPath();cx.moveTo(0,y);cx.lineTo(W,y);cx.stroke();}
+  // Active note indicator
+  if(gStr>=0&&gFret>=0){
+    const sy=(gStr+.5)*sH,fx=gFret*fW+fW/2;
+    cx.save();cx.shadowColor='#00ff88';cx.shadowBlur=22;
+    cx.fillStyle='rgba(0,255,136,0.88)';cx.beginPath();cx.ellipse(fx,sy,fW*.38,sH*.33,0,0,Math.PI*2);cx.fill();
+    cx.restore();
+    // Slide trail
+    for(let i=1;i<=3;i++){cx.save();cx.globalAlpha=0.12/i;cx.fillStyle='#00ff88';cx.beginPath();cx.ellipse(fx-fW*i*.3,sy,fW*.3,sH*.22,0,0,Math.PI*2);cx.fill();cx.restore();}
+  }
+  // Open string note names
+  const t=TUNINGS[guitarTuning];
+  for(let s=0;s<nS;s++){const y=(s+.5)*sH;cx.fillStyle='rgba(0,255,136,0.45)';cx.font='8px Share Tech Mono';cx.textAlign='center';cx.textBaseline='middle';cx.fillText(NOTE_NAMES[t.strings[s]%12],fW/2,y);}
+  // Fret numbers
+  for(let f=1;f<=FRETS;f++){cx.fillStyle='rgba(0,255,136,0.2)';cx.font='7px Share Tech Mono';cx.textAlign='center';cx.fillText(f,(f-.5)*fW+fW/2,H-4);}
+}
+
+function guitarHz(str,fret){return 440*Math.pow(2,(TUNINGS[guitarTuning].strings[str]+fret-69)/12);}
+
+function startGuitar(str,fret){
+  if(!isInit)return;
+  stopGuitar(true);
+  const hz=guitarHz(str,fret);
+  const vol=parseFloat(document.getElementById('guitar_vol').value||0.7);
+  const tone=parseFloat(document.getElementById('guitar-tone').value||1800);
+  gOsc=ctx.createOscillator();gOsc.type='sawtooth';gOsc.frequency.value=hz;
+  gOsc2=ctx.createOscillator();gOsc2.type='triangle';gOsc2.frequency.value=hz*.502;
+  gFilter=ctx.createBiquadFilter();gFilter.type='lowpass';gFilter.frequency.value=tone;gFilter.Q.value=.9;
+  const fil2=ctx.createBiquadFilter();fil2.type='peaking';fil2.frequency.value=300;fil2.gain.value=5;
+  gEnv=ctx.createGain();gEnv.gain.setValueAtTime(0,ctx.currentTime);gEnv.gain.linearRampToValueAtTime(vol*.85,ctx.currentTime+.005);
+  gOsc.connect(gFilter);gOsc2.connect(gFilter);gFilter.connect(fil2);fil2.connect(gEnv);gEnv.connect(ctx.destination);
+  // String attack noise
+  const nb=ctx.createBuffer(1,Math.floor(ctx.sampleRate*.06),ctx.sampleRate);const nd=nb.getChannelData(0);
+  for(let i=0;i<nd.length;i++)nd[i]=(Math.random()*2-1)*Math.pow(1-i/nd.length,2);
+  const ns=ctx.createBufferSource();ns.buffer=nb;const ng=ctx.createGain();
+  ng.gain.setValueAtTime(vol*.25,ctx.currentTime);ng.gain.exponentialRampToValueAtTime(.001,ctx.currentTime+.07);
+  ns.connect(ng);ng.connect(ctx.destination);ns.start();
+  gOsc.start();gOsc2.start();
+  gStr=str;gFret=fret;guitarSliding=true;drawGuitarNeck();
+}
+function slideGuitar(str,fret){
+  if(!isInit||!gOsc)return;
+  const hz=guitarHz(str,fret);
+  gOsc.frequency.exponentialRampToValueAtTime(hz,ctx.currentTime+.025);
+  gOsc2.frequency.exponentialRampToValueAtTime(hz*.502,ctx.currentTime+.025);
+  gStr=str;gFret=fret;drawGuitarNeck();
+}
+function stopGuitar(immediate){
+  if(gOsc){const now=ctx.currentTime;
+    try{gEnv.gain.cancelScheduledValues(now);gEnv.gain.setValueAtTime(gEnv.gain.value,now);gEnv.gain.exponentialRampToValueAtTime(.0001,now+(immediate?.01:.18));
+    setTimeout(()=>{try{gOsc.stop();gOsc2.stop();}catch(e){}},200);}catch(e){}}
+  gOsc=null;gOsc2=null;gStr=-1;gFret=-1;guitarSliding=false;drawGuitarNeck();
+}
+function guitarHit(e,ending,moving){
+  const cv=document.getElementById('guitar-canvas');
+  const r=cv.getBoundingClientRect();
+  const px=(e.touches?e.touches[0].clientX:e.clientX),py=(e.touches?e.touches[0].clientY:e.clientY);
+  const x=(px-r.left)*(cv.width/r.width),y=(py-r.top)*(cv.height/r.height);
+  const W=cv.width,H=cv.height,nS=6,nF=FRETS+1,sH=H/nS,fW=W/nF;
+  if(ending){stopGuitar(false);return;}
+  const si=Math.floor(y/sH),fi=Math.floor(x/fW);
+  if(si<0||si>=nS||fi<0||fi>FRETS)return;
+  if(moving&&guitarSliding)slideGuitar(si,fi);else startGuitar(si,fi);
+}
+const gc=document.getElementById('guitar-canvas');
+if(gc){
+  gc.addEventListener('touchstart',e=>{e.preventDefault();guitarHit(e,false,false);},{passive:false});
+  gc.addEventListener('touchmove',e=>{e.preventDefault();guitarHit(e,false,true);},{passive:false});
+  gc.addEventListener('touchend',e=>{e.preventDefault();guitarHit(e,true,false);},{passive:false});
+  gc.addEventListener('touchcancel',e=>{e.preventDefault();guitarHit(e,true,false);},{passive:false});
+  gc.addEventListener('mousedown',e=>guitarHit(e,false,false));
+  gc.addEventListener('mousemove',e=>{if(guitarSliding)guitarHit(e,false,true);});
+  gc.addEventListener('mouseup',e=>guitarHit(e,true,false));
+  gc.addEventListener('mouseleave',e=>guitarHit(e,true,false));
+}
+
+buildSidebar();buildPresets();buildBeatDots();buildPianoVoices();buildGuitarTunings();
+createDrumCh();createOtoCh();
+setMode('joy');
+sizeAll();
 renderDrumLooper();renderOtoLooper();
-window.addEventListener('resize',()=>{if(isInit)sizeAll();});
+window.addEventListener('resize',()=>sizeAll());
 let lastTap=0;
 document.addEventListener('touchstart',e=>{const now=Date.now();if(now-lastTap<350)e.preventDefault();lastTap=now;},{passive:false});
 document.addEventListener('contextmenu',e=>e.preventDefault());
